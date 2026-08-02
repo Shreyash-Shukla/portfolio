@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --accent-green: #00FF6A;
+  --accent-pink: #FF90E8;
+  --accent-cyan: #00E5FF;
+  --accent-purple: #B388FF;
+  --accent-gold: #FFC900;
+  --border-color: #000000;
+  --shadow-color: rgba(0, 0, 0, 1);
+}
+
+.dark {
+  --background: #0D0D0D;
+  --foreground: #F3F4F6;
+  --card-bg: #1A1A1A;
+  --border-color: #2C2C2C;
+  --shadow-color: rgba(0, 255, 106, 0.3);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-mont {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 106, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 106, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 106, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 106, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neo-Brutalist Hard Shadows */
+.brutal-shadow {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .brutal-shadow {
+  box-shadow: 6px 6px 0px 0px rgba(0, 255, 106, 0.4);
+}
+
+.brutal-shadow-lg {
+  box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .brutal-shadow-lg {
+  box-shadow: 12px 12px 0px 0px rgba(255, 255, 255, 0.9);
+}
+
+.brutal-btn {
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .brutal-btn {
+  border-color: #00FF6A;
+  box-shadow: 4px 4px 0px 0px rgba(0, 255, 106, 0.4);
+}
+
+.brutal-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .brutal-btn:hover {
+  box-shadow: 2px 2px 0px 0px rgba(0, 255, 106, 0.4);
+}
+
+.brutal-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #00FF6A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc55;
+}
+
+/* Blinking Cursor for Typewriter */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  background-color: #00FF6A;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 0.8s infinite;
+}
+
+/* Dark mode: improve placeholder text visibility in inputs/textareas */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6B7280;
+}
+
+/* Dark mode: ensure all standard gray text is readable */
+.dark .text-gray-600 {
+  color: #D1D5DB;
+}
