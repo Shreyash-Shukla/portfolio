@@ -79,16 +79,6 @@ export default function Hero({ onOpenResume }) {
 
         {/* ── Right: Bio ── */}
         <div className="order-1 lg:order-2 flex flex-col gap-7">
-          {/* Tag */}
-          <div className="flex flex-wrap gap-2">
-            <span className="font-mono text-xs font-bold bg-black text-[#00FF6A] dark:bg-[#00FF6A]/10 dark:text-[#00FF6A] border border-[#00FF6A] px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
-              B.Tech CSE · PDEU
-            </span>
-            <span className="font-mono text-xs font-bold bg-gray-200 text-gray-800 dark:bg-white/5 dark:text-gray-300 border border-gray-400 dark:border-gray-700 px-3 py-1 rounded-full uppercase tracking-widest">
-              Ex-Intern @ Quicko
-            </span>
-          </div>
-
           {/* Name */}
           <div>
             <p className="font-mono text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-[0.25em] mb-1">

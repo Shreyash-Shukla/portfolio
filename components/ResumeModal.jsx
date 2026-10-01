@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect } from "react";
-import { X, Download, ExternalLink, Briefcase, GraduationCap, Code, Trophy } from "lucide-react";
+import { X, Download, Briefcase, GraduationCap, Code, Trophy } from "lucide-react";
 
 export default function ResumeModal({ isOpen, onClose }) {
   useEffect(() => {
-    const handleKeyDown = (e) => { if (e.key === "Escape") onClose(); };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
     if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
+      window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     }
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
   }, [isOpen, onClose]);
@@ -37,19 +39,11 @@ export default function ResumeModal({ isOpen, onClose }) {
         {/* Modal Header */}
         <div className="flex items-center justify-between p-6 bg-gray-100 dark:bg-[#0D0D0D] border-b-4 border-black dark:border-gray-800">
           <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-[#00FF6A]"></div>
+            <div className="w-4 h-4 rounded-full bg-emerald-500 animate-pulse"></div>
             <h2 className="font-mono font-black text-xl tracking-wider text-gray-900 dark:text-white">SHREYASH SHUKLA — RESUME</h2>
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href="mailto:shreyash.shukla.dev@gmail.com"
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg font-mono text-xs font-bold border border-black hover:bg-gray-300 dark:hover:bg-gray-700"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span>CONTACT</span>
-            </a>
-
             <button
               onClick={handleDownload}
               className="flex items-center gap-1.5 px-4 py-1.5 bg-emerald-400 dark:bg-[#00FF6A] text-black rounded-lg font-mono text-xs font-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all active:translate-x-1 active:translate-y-1 active:shadow-none"
@@ -73,16 +67,16 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Header Contact */}
           <div className="border-b-2 border-gray-200 dark:border-gray-800 pb-6">
             <h1 className="text-3xl font-black font-mont mb-1 text-gray-900 dark:text-white">SHREYASH SHUKLA</h1>
-            <p className="font-mono text-xs font-bold text-green-700 dark:text-[#00FF6A] uppercase tracking-wider mb-3">
+            <p className="font-mono text-xs font-bold text-emerald-700 dark:text-[#00FF6A] uppercase tracking-wider mb-3">
               SWE Intern @ Quicko · B.Tech CSE @ PDEU · CGPA: 9.72 / 10
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-700 dark:text-gray-300 text-xs font-mono">
               <span>📍 Gandhinagar, Gujarat</span>
               <span>📞 +91 76983 35369</span>
               <a href="mailto:shreyash.shukla.dev@gmail.com" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">✉ shreyash.shukla.dev@gmail.com</a>
-              <a href="https://linkedin.com/in/shreyash-shukla-6a3b5a309" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🔗 LinkedIn</a>
-              <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🐙 GitHub</a>
-              <a href="https://shreyashshukla.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🌐 Portfolio</a>
+              <a href="https://linkedin.com/in/shreyash-shukla-6a3b5a309" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🔗 linkedin.com/in/shreyash-shukla</a>
+              <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🐙 github.com/Shreyash-Shukla</a>
+              <a href="https://shreyashshukla.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-600 dark:hover:text-[#00FF6A] transition-colors">🌐 shreyashshukla.vercel.app</a>
             </div>
           </div>
 
@@ -92,7 +86,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               SUMMARY
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
-              Computer Science undergraduate (CGPA 9.72) with hands-on <strong className="text-gray-900 dark:text-white">AWS</strong> and <strong className="text-gray-900 dark:text-white">Python</strong> experience, building <strong className="text-gray-900 dark:text-white">serverless, schema-driven data services</strong> in production and workflow-orchestration pipelines. Seeking a Cloud Data Engineer role to grow in SQL, PySpark, data warehousing, and multi-cloud data platforms.
+              Computer Science undergraduate (CGPA 9.72) with hands-on experience building <strong className="text-gray-900 dark:text-white">full-stack applications</strong>, <strong className="text-gray-900 dark:text-white">cloud-native backends</strong>, and <strong className="text-gray-900 dark:text-white">AI/ML systems</strong>, including production tools shipped during a software engineering internship. <strong className="text-gray-900 dark:text-white">1st Place</strong> at HackNUthon 6.0 and <strong className="text-gray-900 dark:text-white">2nd Place</strong> at Breach 2025, backed by strong fundamentals in <strong className="text-gray-900 dark:text-white">data structures, algorithms, and system design</strong>.
             </p>
           </div>
 
@@ -104,11 +98,11 @@ export default function ResumeModal({ isOpen, onClose }) {
             </h3>
             <div className="bg-gray-50 dark:bg-[#0D0D0D] p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex justify-between items-start">
               <div>
-                <h4 className="font-bold text-base text-gray-900 dark:text-white">Pandit Deendayal Energy University (PDEU)</h4>
-                <p className="text-xs font-mono text-gray-600 dark:text-gray-400">B.Tech in Computer Science and Engineering</p>
+                <h4 className="font-bold text-base text-gray-900 dark:text-white">Pandit Deendayal Energy University</h4>
+                <p className="text-xs font-mono text-gray-600 dark:text-gray-400">Gandhinagar, Gujarat · B.Tech in Computer Science and Engineering</p>
               </div>
               <div className="text-right ml-4 flex-shrink-0">
-                <span className="font-mono text-xs font-bold text-green-700 dark:text-[#00FF6A] block">CGPA: 9.72 / 10</span>
+                <span className="font-mono text-xs font-bold text-emerald-700 dark:text-[#00FF6A] block">CGPA: 9.72 / 10</span>
                 <p className="text-[11px] text-gray-500 font-mono">July 2023 – May 2027</p>
               </div>
             </div>
@@ -122,16 +116,15 @@ export default function ResumeModal({ isOpen, onClose }) {
             </h3>
             <div className="space-y-2 font-mono text-xs bg-gray-50 dark:bg-[#0D0D0D] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
               {[
-                { label: "Languages", value: "Python, SQL, TypeScript, JavaScript (ES6+), C++, Java, C" },
-                { label: "Data & Analytics", value: "Pandas, NumPy, Matplotlib, JSON & API Data Processing, Data Validation, Schema Design" },
+                { label: "Languages", value: "Python, TypeScript, JavaScript (ES6+), SQL, C++, Java, C" },
+                { label: "Backend & Frontend", value: "Node.js, Express.js, FastAPI, Flask, REST, OpenAPI, Serverless, JWT Auth, Next.js, React.js, Angular, Jest" },
+                { label: "Cloud & DevOps", value: "AWS (Lambda, DynamoDB, S3, CloudFront, IAM), Terraform (IaC), Docker, Jenkins, Git, GitHub, Linux" },
                 { label: "Databases", value: "PostgreSQL, MySQL, DynamoDB, MongoDB" },
-                { label: "Cloud & DevOps", value: "AWS (Lambda, DynamoDB, S3, CloudFront, IAM), Terraform, Docker, Jenkins, Git, Linux" },
-                { label: "Backend & APIs", value: "Node.js, Express.js, FastAPI, Flask, REST APIs, Serverless Architecture, OpenAPI" },
-                { label: "GenAI & Orchestration", value: "LLM-driven workflows, DAG-based orchestration, MCP tool integrations" },
-                { label: "Frontend & Testing", value: "Angular, React.js, Next.js, NgRx, Tailwind CSS, Jest" },
+                { label: "Data & ML", value: "Pandas, NumPy, Matplotlib, XGBoost, Random Forest, GNNs, API Data Processing, Data Validation, Schema Design" },
+                { label: "AI & Concepts", value: "LLM Workflows, RAG, DAG Orchestration, MCP, DSA, OOP, DBMS, Operating Systems, System Design" },
               ].map((skill) => (
-                <div key={skill.label} className="flex gap-2">
-                  <strong className="text-gray-900 dark:text-white min-w-[140px] sm:min-w-[180px] flex-shrink-0">{skill.label}:</strong>
+                <div key={skill.label} className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                  <strong className="text-gray-900 dark:text-white min-w-[150px] sm:min-w-[170px] flex-shrink-0">{skill.label}:</strong>
                   <span className="text-gray-700 dark:text-gray-300">{skill.value}</span>
                 </div>
               ))}
@@ -142,7 +135,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
               <Briefcase className="w-4 h-4 text-emerald-600 dark:text-[#00FF6A]" />
-              WORK EXPERIENCE
+              EXPERIENCE
             </h3>
 
             <div className="border-l-2 border-emerald-500 dark:border-[#00FF6A] pl-4 space-y-2">
@@ -151,14 +144,28 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <h4 className="font-bold text-lg text-gray-900 dark:text-white">Quicko</h4>
                   <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 italic">Software Engineering Intern · Ahmedabad, Gujarat</p>
                 </div>
-                <span className="font-mono text-xs bg-green-500/10 text-green-700 dark:text-[#00FF6A] px-2.5 py-1 rounded font-bold border border-green-500/30 flex-shrink-0">May 2026 – June 2026</span>
+                <span className="font-mono text-xs bg-green-500/10 text-emerald-700 dark:text-[#00FF6A] px-2.5 py-1 rounded font-bold border border-green-500/30 flex-shrink-0">May 2026 – June 2026</span>
               </div>
               <ul className="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 font-light text-xs sm:text-sm leading-relaxed mt-2">
-                <li>Developed and deployed <strong className="text-gray-900 dark:text-white">four production-grade financial tools</strong> live on Quicko's platform: PAN Verification Tool, PAN-Aadhaar Link Status Checker, Tax Payment Status Checker, and e-Verify ITR Tool.</li>
-                <li>Designed cloud-native data workflows on <strong className="text-gray-900 dark:text-white">AWS DynamoDB</strong> and built scalable <strong className="text-gray-900 dark:text-white">serverless APIs</strong> with TypeScript, Node.js, and AWS Lambda, using Middy middleware for request validation, error handling, and logging.</li>
-                <li>Enforced <strong className="text-gray-900 dark:text-white">schema-driven data validation</strong> using OpenAPI Specifications and JSON Schemas, with automated code generation.</li>
-                <li>Provisioned infrastructure as code with <strong className="text-gray-900 dark:text-white">Terraform</strong>, enforcing least-privilege access through AWS IAM roles.</li>
-                <li>Applied <strong className="text-gray-900 dark:text-white">TSyringe</strong> for dependency injection and wrote unit/integration tests with Jest.</li>
+                <li>
+                  Developed and deployed <strong className="text-gray-900 dark:text-white">four production-grade financial tools</strong> live on Quicko&apos;s platform: a{" "}
+                  <a href="https://quicko.com/tools/verify-pan-details" target="_blank" rel="noopener noreferrer" className="text-emerald-700 dark:text-[#00FF6A] font-bold hover:underline">PAN Verification Tool ↗</a>, a{" "}
+                  <a href="https://quicko.com/tools/check-pan-aadhaar-link-status" target="_blank" rel="noopener noreferrer" className="text-emerald-700 dark:text-[#00FF6A] font-bold hover:underline">PAN-Aadhaar Link Status Checker ↗</a>, a{" "}
+                  <a href="https://quicko.com/tools/check-tax-payment-status" target="_blank" rel="noopener noreferrer" className="text-emerald-700 dark:text-[#00FF6A] font-bold hover:underline">Tax Payment Status Checker ↗</a>, and an{" "}
+                  <a href="https://quicko.com/tools/e-verify-itr" target="_blank" rel="noopener noreferrer" className="text-emerald-700 dark:text-[#00FF6A] font-bold hover:underline">e-Verify ITR Tool ↗</a>.
+                </li>
+                <li>
+                  Designed cloud-native data workflows on <strong className="text-gray-900 dark:text-white">AWS DynamoDB</strong> and built scalable <strong className="text-gray-900 dark:text-white">serverless APIs</strong> with <strong className="text-gray-900 dark:text-white">TypeScript</strong>, <strong className="text-gray-900 dark:text-white">Node.js</strong>, and <strong className="text-gray-900 dark:text-white">AWS Lambda</strong>, using Middy middleware for validation, error handling, and logging.
+                </li>
+                <li>
+                  Enforced <strong className="text-gray-900 dark:text-white">schema-driven data validation</strong> across services using <strong className="text-gray-900 dark:text-white">OpenAPI Specifications</strong> and <strong className="text-gray-900 dark:text-white">JSON Schemas</strong>, with automated code generation.
+                </li>
+                <li>
+                  Provisioned infrastructure as code with <strong className="text-gray-900 dark:text-white">Terraform</strong>, enforcing least-privilege access through <strong className="text-gray-900 dark:text-white">AWS IAM</strong> roles and policies.
+                </li>
+                <li>
+                  Applied <strong className="text-gray-900 dark:text-white">TSyringe</strong> for dependency injection; wrote <strong className="text-gray-900 dark:text-white">Jest</strong> unit/integration tests for reliability.
+                </li>
               </ul>
             </div>
           </div>
@@ -171,44 +178,56 @@ export default function ResumeModal({ isOpen, onClose }) {
             <div className="space-y-4">
               {[
                 {
-                  name: "DriveMesh — Encrypted & Distributed Cloud Storage",
+                  name: "PROTRACT — AI Fraud Detection (1st Place, HackNUthon 6.0)",
+                  tech: "Python, FastAPI, XGBoost, GNN, RAG, Next.js, MongoDB",
+                  link: "https://github.com/Shreyash-Shukla/HackNuThon",
+                  bullets: [
+                    "Co-built a real-time fraud detection system that ranked 1st among 300+ teams and 1000+ participants at HackNUthon 6.0.",
+                    "Designed a compliance-first pipeline: every transaction is verified against online-banking regulations before fraud detection, then scored with XGBoost, Random Forest, and Linear Regression (timestamp features, weighted classes) to flag anomalies.",
+                    "Added Graph Neural Networks to detect complex patterns such as circular transactions, producing a risk score and routing flagged cases to an admin review queue.",
+                    "Built RAG-based explanations with compliance reasoning, improving LLM accuracy via structured prompt engineering and better embeddings; served through low-latency FastAPI endpoints with a Next.js dashboard and MongoDB.",
+                  ],
+                },
+                {
+                  name: "VeriChain — AI + Blockchain Fraud Prevention (2nd Place, Breach 2025)",
+                  tech: "Python, FastAPI, DeepFace, Solidity, Next.js, MongoDB",
+                  link: "https://github.com/Shreyash-Shukla/Protract-Breach",
+                  bullets: [
+                    "Built a fraud-prevention platform combining biometric face-recognition authentication (OpenCV, DeepFace), ML fraud detection, and blockchain audit trails.",
+                    "Trained a Random Forest classifier on a public Ethereum transactions dataset (Kaggle) to flag fraudulent transactions.",
+                    "Secured records with immutable Solidity smart contracts (ThirdWeb, MetaMask) on a Next.js, Node.js, FastAPI stack.",
+                  ],
+                },
+                {
+                  name: "DriveMesh — Encrypted & Distributed Cloud Storage over GDrive",
                   tech: "Python, Flask, Google Drive API, OAuth 2.0",
                   link: "https://github.com/Shreyash-Shukla/distributed-drive-client",
                   bullets: [
-                    "Built a Python/Flask application pooling multiple Google Drive accounts into a single encrypted, distributed storage layer with drag-and-drop UI.",
-                    "Engineered a chunking pipeline splitting files into 5MB blocks, encrypted with Fernet, distributed round-robin via Google Drive API v3.",
-                    "Parallelized uploads/downloads with ThreadPoolExecutor (up to 5 threads per account) for significantly faster large-file transfers.",
-                  ]
+                    "Built a Python/Flask app that pools multiple Google Drive accounts into one encrypted, distributed storage layer with a drag-and-drop file manager.",
+                    "Engineered a chunking pipeline that splits files into 5MB blocks, encrypts each with Fernet, and distributes them round-robin across accounts via the Google Drive API v3, parallelized with ThreadPoolExecutor (up to 5 threads per account).",
+                    "Maintained JSON metadata registries to reconstruct, delete, or reorganize files, with multi-account OAuth 2.0 token refresh.",
+                  ],
                 },
                 {
                   name: "DAGent — AI Workflow Orchestration Platform",
                   tech: "Next.js 14, TypeScript, MongoDB, NextAuth, Redux Toolkit",
                   link: "https://github.com/Shreyash-Shukla/tictechtoe",
                   bullets: [
-                    "Built DAGent, an AI-powered platform converting natural-language requests into executable DAG workflows with parallel execution.",
-                    "Integrated MCP tool integrations (Drive, Gmail, Contacts) secured with Google OAuth 2.0 via NextAuth, with auto-refreshing MongoDB-backed tokens.",
-                    "Built interactive dashboard with chat panel, live DAG canvas, and log viewer using Redux Toolkit and Zustand.",
-                  ]
-                },
-                {
-                  name: "MovieSpace — Serverless Movie Catalog",
-                  tech: "Angular 21, NgRx, TypeScript, AWS Lambda, DynamoDB",
-                  link: "https://dwvc9bm4d2i5q.cloudfront.net/movies",
-                  isLive: true,
-                  bullets: [
-                    "Engineered a serverless movie catalog platform on AWS Lambda and DynamoDB with JWT-based authentication, deployed via S3/CloudFront.",
-                    "Implemented centralized state management with NgRx Store and Effects; styled with Angular Material and Tailwind CSS.",
-                  ]
+                    "Built an AI workflow orchestration platform that converts natural-language requests into executable DAG workflows, running independent tool nodes in parallel.",
+                    "Integrated MCP tools (Drive, Gmail, Contacts) secured with Google OAuth 2.0 via NextAuth, with auto-refreshing tokens stored in a custom MongoDB adapter.",
+                    "Designed Mongoose schemas for chats, workflow graphs, and credentials.",
+                    "Built the interactive dashboard — chat panel, live DAG canvas, log viewer — with Redux Toolkit and Zustand for state and Framer Motion/GSAP for animation.",
+                  ],
                 },
               ].map((proj) => (
                 <div key={proj.name} className="bg-gray-50 dark:bg-[#0D0D0D] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
                   <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
                     <div>
                       <h4 className="font-bold text-sm text-gray-900 dark:text-white">{proj.name}</h4>
-                      <p className="font-mono text-[10px] text-gray-500 dark:text-gray-500 italic">{proj.tech}</p>
+                      <p className="font-mono text-[10px] text-gray-600 dark:text-gray-400 italic">{proj.tech}</p>
                     </div>
-                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono font-bold text-green-700 dark:text-[#00FF6A] hover:underline flex items-center gap-1 flex-shrink-0">
-                      {proj.isLive ? "🔗 Live" : "GitHub ↗"}
+                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-[10px] font-mono font-bold text-emerald-700 dark:text-[#00FF6A] hover:underline flex items-center gap-1 flex-shrink-0">
+                      GitHub ↗
                     </a>
                   </div>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 font-light text-xs leading-relaxed">
@@ -219,17 +238,19 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Achievements */}
+          {/* Achievements & Certifications */}
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
               <Trophy className="w-4 h-4 text-emerald-600 dark:text-[#00FF6A]" />
-              ACHIEVEMENTS &amp; HONORS
+              ACHIEVEMENTS &amp; CERTIFICATIONS
             </h3>
-            <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-light">
-              <li>Earned the <strong className="text-gray-900 dark:text-white">Knight</strong> badge on <strong className="text-gray-900 dark:text-white">LeetCode</strong>, demonstrating strong problem-solving and algorithmic skills.</li>
-              <li><strong className="text-gray-900 dark:text-white">1st Place at Nirma Hackathon</strong> and <strong className="text-gray-900 dark:text-white">2nd Position at Breach Hackathon</strong>.</li>
-              <li>Qualified <strong className="text-gray-900 dark:text-white">JEE Mains, JEE Advanced, and GATE</strong>; awarded the <strong className="text-gray-900 dark:text-white">Government of Gujarat Scholarship</strong>.</li>
-              <li>Completed <strong className="text-gray-900 dark:text-white">Entrepreneurship and Incubation</strong> certification — <strong className="text-gray-900 dark:text-white">NPTEL (IIT Bombay)</strong>.</li>
+            <ul className="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-light">
+              <li>
+                Earned the <strong className="text-gray-900 dark:text-white">Knight</strong> badge on <strong className="text-gray-900 dark:text-white">LeetCode</strong>; Qualified <strong className="text-gray-900 dark:text-white">JEE Mains</strong>, <strong className="text-gray-900 dark:text-white">JEE Advanced</strong>, and <strong className="text-gray-900 dark:text-white">GATE</strong>; Awarded the <strong className="text-gray-900 dark:text-white">Government of Gujarat Merit Scholarship</strong>.
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">Certificate</strong> in Entrepreneurship and Incubation — <strong className="text-gray-900 dark:text-white">NPTEL (IIT Bombay)</strong>.
+              </li>
             </ul>
           </div>
         </div>
