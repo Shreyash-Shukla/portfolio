@@ -50,7 +50,7 @@ export default function Pipeline() {
     <section id="pipeline" className="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto">
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-16">
-        <div className="flex items-center gap-2.5 mb-4 font-mono text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest bg-gray-100 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10">
+        <div className="flex items-center gap-2.5 mb-4 font-mono text-xs font-bold text-gray-700 dark:text-gray-400 uppercase tracking-widest bg-gray-200 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-300 dark:border-white/10">
           <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
           <span>DEVELOPMENT PIPELINE</span>
         </div>
@@ -59,7 +59,7 @@ export default function Pipeline() {
           How I Bring Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Vision</span> To Life
         </h2>
 
-        <p className="max-w-2xl text-base sm:text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+        <p className="max-w-2xl text-base sm:text-lg text-gray-700 dark:text-gray-400 font-light leading-relaxed">
           A transparent, iterative workflow focused on quality, speed, and measurable results. From requirements to deployment.
         </p>
       </div>
@@ -72,8 +72,8 @@ export default function Pipeline() {
             className={`group flex items-stretch bg-white dark:bg-[#1A1A1A] ${step.hoverColor} transition-colors duration-300 cursor-default`}
           >
             {/* Number Column */}
-            <div className="flex-shrink-0 w-24 sm:w-32 flex items-center justify-center border-r-2 border-black dark:border-white/10 p-6 bg-gray-50 dark:bg-[#0D0D0D] group-hover:bg-transparent transition-colors">
-              <span className="text-4xl sm:text-5xl font-black font-mono text-gray-400 dark:text-gray-400 group-hover:text-black dark:group-hover:text-black transition-colors">
+            <div className="flex-shrink-0 w-24 sm:w-32 flex items-center justify-center border-r-2 border-black dark:border-white/10 p-6 bg-gray-100 dark:bg-[#0D0D0D] group-hover:bg-transparent transition-colors">
+              <span className="text-4xl sm:text-5xl font-black font-mono text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-black transition-colors">
                 {step.number}
               </span>
             </div>
@@ -87,7 +87,7 @@ export default function Pipeline() {
                     {step.title}
                   </h3>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 group-hover:text-black/80 font-medium leading-relaxed max-w-3xl transition-colors">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 group-hover:text-black/80 font-medium leading-relaxed max-w-3xl transition-colors">
                   {step.description}
                 </p>
               </div>

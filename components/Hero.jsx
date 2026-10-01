@@ -67,12 +67,12 @@ export default function Hero({ onOpenResume }) {
 
         {/* ── Left: Game ── */}
         <div className="flex flex-col items-center lg:items-start gap-3 order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#00FF6A] bg-[#00FF6A]/10 border border-[#00FF6A]/30 rounded-full px-3 py-1 mb-1">
-            <span className="w-2 h-2 rounded-full bg-[#00FF6A] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-emerald-700 dark:text-[#00FF6A] bg-emerald-500/10 dark:bg-[#00FF6A]/10 border border-emerald-500/30 dark:border-[#00FF6A]/30 rounded-full px-3 py-1 mb-1">
+            <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#00FF6A] animate-pulse"></span>
             MINI GAME — BUG BLASTER
           </div>
           <SpaceShooter />
-          <p className="font-mono text-xs text-gray-500 dark:text-gray-500 text-center">
+          <p className="font-mono text-xs text-gray-700 dark:text-gray-400 text-center font-medium">
             A developer who ships code AND squashes bugs 🐛
           </p>
         </div>
@@ -81,37 +81,37 @@ export default function Hero({ onOpenResume }) {
         <div className="order-1 lg:order-2 flex flex-col gap-7">
           {/* Tag */}
           <div className="flex flex-wrap gap-2">
-            <span className="font-mono text-xs font-bold bg-black text-[#00FF6A] dark:bg-[#00FF6A]/10 dark:text-[#00FF6A] border border-[#00FF6A] px-3 py-1 rounded-full uppercase tracking-widest">
+            <span className="font-mono text-xs font-bold bg-black text-[#00FF6A] dark:bg-[#00FF6A]/10 dark:text-[#00FF6A] border border-[#00FF6A] px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
               B.Tech CSE · PDEU
             </span>
-            <span className="font-mono text-xs font-bold bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-400 border border-gray-300 dark:border-gray-700 px-3 py-1 rounded-full uppercase tracking-widest">
+            <span className="font-mono text-xs font-bold bg-gray-200 text-gray-800 dark:bg-white/5 dark:text-gray-300 border border-gray-400 dark:border-gray-700 px-3 py-1 rounded-full uppercase tracking-widest">
               Ex-Intern @ Quicko
             </span>
           </div>
 
           {/* Name */}
           <div>
-            <p className="font-mono text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.25em] mb-1">
+            <p className="font-mono text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-[0.25em] mb-1">
               Hello, World! I&apos;m
             </p>
             <h1 className="font-mono font-black text-5xl lg:text-6xl xl:text-7xl text-gray-900 dark:text-white leading-tight tracking-tight">
               SHREYASH
               <br />
-              <span className="text-[#00FF6A]">SHUKLA</span>
+              <span className="text-emerald-600 dark:text-[#00FF6A]">SHUKLA</span>
               <span className="text-gray-900 dark:text-white">.</span>
             </h1>
           </div>
 
           {/* Typewriter */}
           <div className="h-10 flex items-center">
-            <span className="font-mono text-lg lg:text-xl text-gray-700 dark:text-gray-300 font-semibold">
+            <span className="font-mono text-lg lg:text-xl text-gray-800 dark:text-gray-200 font-semibold">
               {displayed}
-              <span className="inline-block w-0.5 h-5 bg-[#00FF6A] ml-0.5 animate-pulse"></span>
+              <span className="inline-block w-0.5 h-5 bg-emerald-600 dark:bg-[#00FF6A] ml-0.5 animate-pulse"></span>
             </span>
           </div>
 
           {/* Bio */}
-          <p className="font-mono text-sm text-gray-700 dark:text-gray-200 leading-relaxed max-w-lg">
+          <p className="font-mono text-sm text-gray-800 dark:text-gray-200 leading-relaxed max-w-lg">
             I&apos;m a Computer Science student at{" "}
             <span className="text-gray-900 dark:text-white font-bold">
               Pandit Deendayal Energy University
@@ -127,12 +127,12 @@ export default function Hero({ onOpenResume }) {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-gray-50 dark:bg-white/5 border-2 border-gray-200 dark:border-white/10 rounded-xl p-3 text-center hover:border-[#00FF6A]/50 transition-colors"
+                className="bg-white dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 rounded-xl p-3 text-center hover:border-green-500 dark:hover:border-[#00FF6A]/50 transition-colors shadow-sm"
               >
                 <p className="font-mono font-black text-2xl text-gray-900 dark:text-white">
                   {s.value}
                 </p>
-                <p className="font-mono text-[10px] text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                <p className="font-mono text-[10px] text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                   {s.label}
                 </p>
               </div>
@@ -143,7 +143,7 @@ export default function Hero({ onOpenResume }) {
           <div className="flex flex-wrap gap-3 mt-1">
             <button
               onClick={onOpenResume}
-              className="neo-btn font-mono font-black text-sm bg-[#00FF6A] text-black px-7 py-3 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
+              className="neo-btn font-mono font-black text-sm bg-emerald-400 dark:bg-[#00FF6A] text-black px-7 py-3 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
             >
               View Resume
             </button>
@@ -156,9 +156,9 @@ export default function Hero({ onOpenResume }) {
           </div>
 
           {/* Scroll hint */}
-          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-600 font-mono text-xs">
+          <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400 font-mono text-xs">
             <span>Scroll to explore</span>
-            <span className="animate-bounce text-[#00FF6A]">↓</span>
+            <span className="animate-bounce text-emerald-600 dark:text-[#00FF6A] font-bold">↓</span>
           </div>
         </div>
       </div>

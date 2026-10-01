@@ -97,7 +97,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
           </div>
           <div className="flex flex-col">
             <span className="font-mono font-black text-lg text-gray-900 dark:text-white tracking-wider">
-              SHREYASH<span className="text-[#00FF6A]">.DEV</span>
+              SHREYASH<span className="text-emerald-600 dark:text-[#00FF6A]">.DEV</span>
             </span>
             <span className="font-mono text-[10px] text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest hidden sm:inline-flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -112,18 +112,24 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             <a
               key={link.name}
               href={link.href}
-              className="text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-[#00FF6A] transition-colors hover:underline decoration-2 underline-offset-4"
+              className="text-gray-900 dark:text-gray-200 hover:text-black dark:hover:text-[#00FF6A] transition-colors hover:underline decoration-2 underline-offset-4"
             >
               {link.name}
             </a>
           ))}
+          <button
+            onClick={onOpenResume}
+            className="font-mono text-xs font-bold bg-black text-[#00FF6A] dark:bg-[#00FF6A] dark:text-black px-4 py-1.5 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
+          >
+            [ RESUME ]
+          </button>
         </nav>
 
         {/* Right Controls */}
         <div className="flex items-center gap-3">
           {/* Social Icons */}
           <div className="hidden sm:flex items-center gap-3 pr-3 border-r border-gray-300 dark:border-gray-700">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-[#1DA1F2] hover:scale-110 transition-transform">
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X" className="text-[#1DA1F2] hover:scale-110 transition-transform">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/>
               </svg>
@@ -182,6 +188,12 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
               {link.name}
             </a>
           ))}
+          <button
+            onClick={() => { setMobileMenuOpen(false); onOpenResume(); }}
+            className="py-2 text-lg text-left text-emerald-600 dark:text-[#00FF6A] font-black border-b border-gray-100 dark:border-gray-800 font-mono uppercase tracking-widest"
+          >
+            [ RESUME ]
+          </button>
         </div>
       )}
     </header>

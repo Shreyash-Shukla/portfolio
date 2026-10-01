@@ -1,0 +1,61 @@
+SHREYASH SHUKLA
+Gandhinagar, Gujarat | +91 76983 35369 | shreyash.shukla.dev@gmail.com
+linkedin.com/in/shreyash-shukla | github.com/Shreyash-Shukla | shreyashshukla.vercel.app
+
+SUMMARY
+Computer Science undergraduate (CGPA 9.72) with hands-on AWS and Python experience, building serverless, 
+schema-driven data services in production and workflow-orchestration pipelines. Seeking a Cloud Data Engineer 
+role to grow in SQL, PySpark, data warehousing, and multi-cloud data platforms.
+
+EDUCATION
+Pandit Deendayal Energy University                                         Gandhinagar, Gujarat
+B.Tech in Computer Science and Engineering | CGPA: 9.72 / 10            July 2023 -- May 2027
+
+TECHNICAL SKILLS
+Languages:     Python, SQL, TypeScript, JavaScript (ES6+), C++, Java, C
+Data Analytics: Pandas, NumPy, Matplotlib, JSON & API Data Processing, Data Validation, Schema Design
+Databases:     PostgreSQL, MySQL, DynamoDB, MongoDB
+Cloud & DevOps: AWS (Lambda, DynamoDB, S3, CloudFront, IAM), Terraform (IaC), Docker, Jenkins, Git, Linux
+Backend & APIs: Node.js, Express.js, FastAPI, Flask, REST APIs, Serverless Architecture, OpenAPI
+GenAI & Orchestration: LLM-driven workflows, DAG-based orchestration, MCP tool integrations
+Frontend: Angular, React.js, Next.js, NgRx, Tailwind CSS, Jest
+Concepts: Data Structures & Algorithms, OOP, DBMS, Operating Systems, System Design, JWT Auth
+
+EXPERIENCE
+Quicko | Software Engineering Intern                                       Ahmedabad, Gujarat
+                                                                           May 2026 -- June 2026
+- Developed and deployed four production-grade financial tools live on Quicko's platform.
+- Designed cloud-native data workflows on AWS DynamoDB and built scalable serverless APIs with TypeScript,
+  Node.js, and AWS Lambda, using Middy middleware for request validation, error handling, and logging.
+- Enforced schema-driven data validation and consistency using OpenAPI Specifications and JSON Schemas.
+- Provisioned infrastructure as code with Terraform, enforcing least-privilege access through AWS IAM.
+- Applied TSyringe for dependency injection and wrote unit/integration tests with Jest.
+
+PROJECTS
+DriveMesh -- Encrypted & Distributed Cloud Storage over GDrive
+(Python, Flask, Google Drive API, OAuth 2.0) | github.com/Shreyash-Shukla/distributed-drive-client
+- Built a Python/Flask application that pools multiple Google Drive accounts into a single encrypted, 
+  distributed storage layer with a drag-and-drop file-manager UI.
+- Engineered a chunking pipeline that splits files into 5MB blocks, encrypts each with Fernet, and 
+  distributes them round-robin across accounts via the Google Drive API v3.
+- Parallelized chunk uploads/downloads with ThreadPoolExecutor (up to 5 threads per account).
+
+DAGent -- AI Workflow Orchestration Platform
+(Next.js 14, TypeScript, MongoDB, NextAuth, Redux Toolkit) | github.com/Shreyash-Shukla/tictechtoe
+- Built DAGent, an AI-powered workflow orchestration platform that converts natural-language requests 
+  into executable DAG workflows, running independent tool nodes in parallel.
+- Integrated MCP tool integrations (Drive, Gmail, Contacts) secured with Google OAuth 2.0 via NextAuth.
+- Designed Mongoose schemas for Sessions, Chats, Integrations with indexed auto-incrementing IDs.
+
+MovieSpace -- Serverless Movie Catalog
+(Angular 21, NgRx, TypeScript, AWS Lambda, DynamoDB) | dwvc9bm4d2i5q.cloudfront.net/movies
+- Engineered a serverless movie catalog platform on AWS Lambda and DynamoDB with JWT-based authentication.
+- Implemented centralized state management with NgRx Store and Effects; styled with Angular Material.
+
+ACHIEVEMENTS
+- Earned the Knight badge on LeetCode, demonstrating strong problem-solving and algorithmic skills.
+- Secured 1st Place at Nirma Hackathon and 2nd Position at Breach Hackathon.
+- Qualified JEE Mains, JEE Advanced, and GATE; awarded Government of Gujarat Scholarship.
+
+CERTIFICATIONS
+- Entrepreneurship and Incubation -- NPTEL (IIT Bombay)

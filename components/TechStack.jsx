@@ -37,7 +37,7 @@ export default function TechStack() {
     <section id="expertise" className="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto">
       {/* Header */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-3 mb-4 font-mono text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest bg-gray-100 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10">
+        <div className="inline-flex items-center gap-3 mb-4 font-mono text-xs font-bold text-gray-700 dark:text-gray-400 uppercase tracking-widest bg-gray-200 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-300 dark:border-white/10">
           <span className="flex gap-1">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse delay-75"></span>
@@ -47,9 +47,9 @@ export default function TechStack() {
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-mont text-gray-900 dark:text-white uppercase tracking-tight mb-4">
-          Technical <span className="text-[#00FF6A]">Stack</span>
+          Technical <span className="text-emerald-600 dark:text-[#00FF6A]">Stack</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
           Production-proven technologies across full stack development, cloud infrastructure, and data analytics.
         </p>
       </div>

@@ -59,9 +59,9 @@ export default function Contact() {
         <div className="lg:col-span-7 bg-white dark:bg-[#1A1A1A] rounded-3xl border-4 border-black dark:border-white p-8 sm:p-10 brutal-shadow-lg">
           <div className="mb-8">
             <h2 className="text-4xl font-black font-mont uppercase tracking-tight text-gray-900 dark:text-white mb-2">
-              Send a <span className="text-[#00FF6A]">Message</span>
+              Send a <span className="text-emerald-600 dark:text-[#00FF6A]">Message</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-sm font-mono">
+            <p className="text-gray-700 dark:text-gray-400 text-sm font-mono">
               Have an internship, project, or technical opportunity? Let's connect!
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-mono font-bold uppercase text-gray-700 dark:text-gray-300 tracking-wider">
+                <label className="text-xs font-mono font-bold uppercase text-gray-800 dark:text-gray-300 tracking-wider">
                   Your Name
                 </label>
                 <input
@@ -97,7 +97,7 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-mono font-bold uppercase text-gray-700 dark:text-gray-300 tracking-wider">
+                <label className="text-xs font-mono font-bold uppercase text-gray-800 dark:text-gray-300 tracking-wider">
                   Email Address
                 </label>
                 <input
@@ -150,10 +150,10 @@ export default function Contact() {
                   EMAIL ADDRESS
                 </p>
                 <a
-                  href="mailto:23bcp089@sot.pdpu.ac.in"
+                  href="mailto:shreyash.shukla.dev@gmail.com"
                   className="text-base sm:text-lg font-bold text-white hover:text-[#00FF6A] transition-colors break-all"
                 >
-                  23bcp089@sot.pdpu.ac.in
+                  shreyash.shukla.dev@gmail.com
                 </a>
               </div>
 

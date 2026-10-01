@@ -1,6 +1,6 @@
 "use client";
 
-import { Trophy, Medal, Award, Flame, Star, Sparkles } from "lucide-react";
+import { Trophy, Medal, Award, Star, Sparkles } from "lucide-react";
 
 export default function Hackathons() {
   const achievements = [
@@ -26,17 +26,7 @@ export default function Hackathons() {
       description:
         "Achieved 2nd Position at Breach Hackathon by designing and deploying an end-to-end full-stack web project within a strict 24-hour sprint.",
     },
-    {
-      title: "400+ DSA Problems Solved",
-      category: "Algorithmic Mastery",
-      badge: "LEETCODE / GFG",
-      badgeBg: "bg-[#FF90E8] text-black",
-      borderHex: "border-black dark:border-[#FF90E8]",
-      cardBg: "bg-white dark:bg-[#1A1A1A]",
-      icon: <Flame className="w-8 h-8 text-pink-500" />,
-      description:
-        "Mastered complex data structures & algorithms by solving 400+ algorithmic challenges across LeetCode, GeeksforGeeks, and competitive coding platforms.",
-    },
+
     {
       title: "Govt of Gujarat Academic Scholarship",
       category: "Academic Distinction",
@@ -60,6 +50,17 @@ export default function Hackathons() {
         "Qualified all top-tier national competitive engineering examinations including JEE Mains, JEE Advanced, and GATE with exceptional analytical scores.",
     },
     {
+      title: "LeetCode Knight Badge",
+      category: "Competitive Programming",
+      badge: "KNIGHT 🏅",
+      badgeBg: "bg-[#FFC900] text-black",
+      borderHex: "border-black dark:border-[#FFC900]",
+      cardBg: "bg-white dark:bg-[#1A1A1A]",
+      icon: <Trophy className="w-8 h-8 text-amber-500" />,
+      description:
+        "Earned the prestigious Knight badge on LeetCode, demonstrating exceptional problem-solving skills and strong algorithmic thinking through consistent performance in competitive programming contests.",
+    },
+    {
       title: "NPTEL IIT Bombay Certification",
       category: "Professional Credentials",
       badge: "CERTIFIED",
@@ -76,15 +77,15 @@ export default function Hackathons() {
     <section id="hackathons" className="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto">
       {/* Header Tag */}
       <div className="flex flex-col items-center text-center mb-16">
-        <div className="inline-flex items-center gap-2.5 mb-4 font-mono text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest bg-gray-100 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10">
+        <div className="inline-flex items-center gap-2.5 mb-4 font-mono text-xs font-bold text-gray-700 dark:text-gray-400 uppercase tracking-widest bg-gray-200 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-300 dark:border-white/10">
           <Trophy className="w-4 h-4 text-amber-500" />
           <span>HACKATHONS & ACHIEVEMENTS</span>
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-mont text-gray-900 dark:text-white uppercase tracking-tight mb-4">
-          Victories & <span className="text-[#00FF6A]">Milestones</span>
+          Victories & <span className="text-emerald-600 dark:text-[#00FF6A]">Milestones</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
           Demonstrated competitive engineering excellence across hackathons, algorithmic problem solving, and academic awards.
         </p>
       </div>
@@ -99,7 +100,7 @@ export default function Hackathons() {
             <div>
               {/* Badge & Icon Header */}
               <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-gray-50 dark:bg-black/50 border border-gray-200 dark:border-gray-800">
+                <div className="p-3 rounded-xl bg-gray-100 dark:bg-black/50 border border-gray-300 dark:border-gray-800">
                   {item.icon}
                 </div>
                 <span className={`font-mono text-xs font-black px-3 py-1 rounded-full border border-black ${item.badgeBg}`}>
@@ -107,7 +108,7 @@ export default function Hackathons() {
                 </span>
               </div>
 
-              <span className="font-mono text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block mb-1">
+              <span className="font-mono text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider block mb-1">
                 {item.category}
               </span>
 
@@ -115,7 +116,7 @@ export default function Hackathons() {
                 {item.title}
               </h3>
 
-              <p className="text-sm text-gray-700 dark:text-gray-200 font-light leading-relaxed">
+              <p className="text-sm text-gray-800 dark:text-gray-200 font-light leading-relaxed">
                 {item.description}
               </p>
             </div>
