@@ -1,67 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { X, Menu } from "lucide-react";
-
-// Authentic Batman SVG Symbol — Classic DC Comics wide-wing bat silhouette
-function BatmanSymbol() {
-  return (
-    <svg
-      viewBox="0 0 300 130"
-      className="w-14 h-7"
-      style={{ filter: "drop-shadow(0 0 6px rgba(245,208,97,0.8))" }}
-    >
-      {/* Classic batman logo — wide wings, pointed ears, notched lower edge */}
-      <path
-        fill="#F5D061"
-        d="
-          M150 18
-          C145 30 135 38 118 36
-          C100 34 80 24 55 14
-          C62 30 72 46 82 54
-          C70 52 55 52 44 56
-          C52 60 65 63 76 63
-          C68 68 56 74 48 82
-          C60 78 76 74 88 74
-          C94 78 100 82 108 85
-          C116 82 124 78 132 74
-          C138 74 144 74 150 74
-          C156 74 162 74 168 74
-          C176 78 184 82 192 85
-          C200 82 206 78 212 74
-          C224 74 240 78 252 82
-          C244 74 232 68 224 63
-          C235 63 248 60 256 56
-          C245 52 230 52 218 54
-          C228 46 238 30 245 14
-          C220 24 200 34 182 36
-          C165 38 155 30 150 18 Z
-        "
-      />
-    </svg>
-  );
-}
-
-// Authentic Superman Shield SVG — Classic pentagon with bold diagonal S
-function SupermanSymbol() {
-  return (
-    <svg
-      viewBox="0 0 80 95"
-      className="w-7 h-8"
-      style={{ filter: "drop-shadow(0 0 6px rgba(229,9,20,0.8))" }}
-    >
-      {/* Outer shield — classic pentagon shape */}
-      <path d="M40 2 L74 20 L74 60 L40 93 L6 60 L6 20 Z" fill="#CC0000" stroke="#FFCC00" strokeWidth="4" strokeLinejoin="round"/>
-      {/* Inner yellow frame */}
-      <path d="M40 12 L66 26 L66 57 L40 82 L14 57 L14 26 Z" fill="#FFCC00"/>
-      {/* Red S shape — top half */}
-      <path d="M52 20 C58 20 63 25 63 31 C63 37 58 41 52 43 L38 43 C35 43 33 45 33 48 C33 51 35 53 38 53 L54 53 C52 55 48 57 44 57 L30 57 C24 57 19 52 19 46 C19 40 24 36 30 34 L44 34 C47 34 49 32 49 29 C49 26 47 24 44 24 L30 24 C32 22 36 20 40 20 Z" fill="#CC0000"/>
-      {/* Red S shape — bottom half */}
-      <path d="M28 57 C22 57 17 52 17 46 C17 43 18 41 20 39 L34 39 C31 39 29 41 29 44 C29 47 31 49 34 49 L48 49 L48 53 L32 53 C36 53 38 55 40 57 Z" fill="#CC0000" opacity="0"/>
-    </svg>
-  );
-}
-
 
 export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
   const [scrolled, setScrolled] = useState(false);
@@ -151,18 +92,30 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             </a>
           </div>
 
-          {/* Batman / Superman Toggle — Symbol Only */}
+          {/* Batman Mode Toggle */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            aria-label={isDarkMode ? "Switch to Light Mode (Superman)" : "Switch to Dark Mode (Batman)"}
-            title={isDarkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
-            className={`flex items-center justify-center px-3 py-2 rounded-xl border-2 transition-all hover:scale-105 active:scale-95 ${
-              isDarkMode
-                ? "bg-[#1A1A1A] border-[#F5D061]/50 shadow-[0_0_12px_rgba(245,208,97,0.3)]"
-                : "bg-gray-900 border-[#FFCC00]/50 shadow-[0_0_12px_rgba(229,9,20,0.3)]"
-            }`}
+            aria-label="Batman Mode"
+            title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className="group flex items-center justify-center p-1.5 transition-all cursor-pointer"
           >
-            {isDarkMode ? <BatmanSymbol /> : <SupermanSymbol />}
+            {isDarkMode ? (
+              <Image
+                src="/batman.png"
+                alt="Batman Mode"
+                width={48}
+                height={48}
+                className="w-10 h-10 transition-all duration-300 group-hover:scale-125 invert-[92%] sepia-[94%] saturate-[6179%] hue-rotate-[352deg] brightness-[101%] contrast-[106%]"
+              />
+            ) : (
+              <Image
+                src="/batman.png"
+                alt="Batman Mode"
+                width={48}
+                height={48}
+                className="w-10 h-10 transition-all duration-300 group-hover:scale-125 grayscale opacity-50"
+              />
+            )}
           </button>
 
           {/* Mobile Toggle */}

@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const SpaceShooter = dynamic(() => import("./SpaceShooter"), {
   ssr: false,
   loading: () => (
-    <div className="w-full max-w-[420px] h-[520px] rounded-2xl border-2 border-[#00FF6A]/30 bg-[#070714] flex items-center justify-center">
+    <div className="w-full max-w-[380px] h-[440px] rounded-2xl border-2 border-[#00FF6A]/30 bg-[#070714] flex items-center justify-center">
       <span className="font-mono text-[#00FF6A] text-sm animate-pulse">Loading game...</span>
     </div>
   ),
@@ -53,7 +53,7 @@ export default function Hero({ onOpenResume }) {
 
   const stats = [
     { value: "9.72", label: "CGPA / 10" },
-    { value: "400+", label: "DSA Solved" },
+    { value: "Knight", label: "on LeetCode" },
     { value: "4", label: "Production Tools" },
     { value: "2x", label: "Hackathon Winner" },
   ];
@@ -61,12 +61,12 @@ export default function Hero({ onOpenResume }) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-24 pb-12 px-6 lg:px-12 max-w-[1440px] mx-auto"
+      className="min-h-screen flex items-center pt-20 lg:pt-16 pb-10 px-6 lg:px-12 max-w-[1440px] mx-auto"
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         {/* ── Left: Game ── */}
-        <div className="flex flex-col items-center lg:items-start gap-3 order-2 lg:order-1">
+        <div className="flex flex-col items-center lg:items-start gap-2.5 order-2 lg:order-1 lg:-mt-10">
           <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-emerald-700 dark:text-[#00FF6A] bg-emerald-500/10 dark:bg-[#00FF6A]/10 border border-emerald-500/30 dark:border-[#00FF6A]/30 rounded-full px-3 py-1 mb-1">
             <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#00FF6A] animate-pulse"></span>
             MINI GAME — BUG BLASTER
@@ -119,7 +119,7 @@ export default function Hero({ onOpenResume }) {
             (CGPA: 9.72/10), based in{" "}
             <span className="text-gray-900 dark:text-white font-bold">Gandhinagar, Gujarat</span>
             . I build production-grade full-stack apps, architect serverless systems on AWS, and
-            solve 400+ problems just for fun.
+            hold a Knight badge on LeetCode.
           </p>
 
           {/* Stats */}
@@ -129,7 +129,7 @@ export default function Hero({ onOpenResume }) {
                 key={s.label}
                 className="bg-white dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 rounded-xl p-3 text-center hover:border-green-500 dark:hover:border-[#00FF6A]/50 transition-colors shadow-sm"
               >
-                <p className="font-mono font-black text-2xl text-gray-900 dark:text-white">
+                <p className="font-mono font-black text-xl sm:text-2xl text-gray-900 dark:text-white">
                   {s.value}
                 </p>
                 <p className="font-mono text-[10px] text-gray-700 dark:text-gray-300 uppercase tracking-wider">

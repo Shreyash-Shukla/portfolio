@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const CANVAS_W = 420;
-const CANVAS_H = 520;
+const CANVAS_W = 380;
+const CANVAS_H = 440;
 const PLAYER_W = 36;
 const PLAYER_H = 42;
 const BULLET_W = 4;
@@ -644,22 +644,22 @@ export default function SpaceShooter() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-3 select-none">
-      <div className="relative rounded-2xl overflow-hidden border-2 border-[#00FF6A]/40 shadow-[0_0_30px_rgba(0,255,106,0.15)]">
+    <div className="flex flex-col items-center gap-2 select-none w-full max-w-[380px]">
+      <div className="relative rounded-2xl overflow-hidden border-2 border-[#00FF6A]/40 shadow-[0_0_24px_rgba(0,255,106,0.15)] w-full">
         <canvas
           ref={canvasRef}
           width={CANVAS_W}
           height={CANVAS_H}
-          className="block w-full max-w-[420px]"
+          className="block w-full max-w-[380px] h-auto"
           style={{ imageRendering: "pixelated" }}
         />
 
         {/* Idle overlay */}
         {gamePhase === "idle" && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#070714]/90 gap-6">
-            <div className="text-center px-6">
-              <div className="text-5xl mb-3">🚀</div>
-              <h3 className="font-mono font-black text-[#00FF6A] text-2xl mb-2">BUG BLASTER</h3>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#070714]/90 gap-4 p-4">
+            <div className="text-center px-4">
+              <div className="text-4xl mb-2">🚀</div>
+              <h3 className="font-mono font-black text-[#00FF6A] text-xl mb-1">BUG BLASTER</h3>
               <p className="font-mono text-gray-400 text-xs leading-relaxed mb-1">
                 Shoot the software bugs!
               </p>
@@ -670,7 +670,7 @@ export default function SpaceShooter() {
             </div>
             <button
               onClick={startGame}
-              className="font-mono font-black text-black bg-[#00FF6A] px-8 py-3 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all text-sm uppercase tracking-widest"
+              className="font-mono font-black text-black bg-[#00FF6A] px-7 py-2.5 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all text-xs sm:text-sm uppercase tracking-widest"
             >
               START GAME
             </button>
