@@ -22,8 +22,8 @@ export default function ResumeModal({ isOpen, onClose }) {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Shreyash_Shukla_Resume.pdf";
-    link.download = "Shreyash_Shukla_Resume.pdf";
+    link.href = "/resume_new.pdf";
+    link.download = "resume_new.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -178,9 +178,9 @@ export default function ResumeModal({ isOpen, onClose }) {
             <div className="space-y-4">
               {[
                 {
-                  name: "PROTRACT — AI Fraud Detection (1st Place, HackNUthon 6.0)",
+                  name: "FraudShield — AI Fraud Detection (1st Place, HackNUthon 6.0)",
                   tech: "Python, FastAPI, XGBoost, GNN, RAG, Next.js, MongoDB",
-                  link: "https://github.com/Shreyash-Shukla/HackNuThon",
+                  link: "https://github.com/Shreyash-Shukla/FraudShield",
                   bullets: [
                     "Co-built a real-time fraud detection system that ranked 1st among 300+ teams and 1000+ participants at HackNUthon 6.0.",
                     "Designed a compliance-first pipeline: every transaction is verified against online-banking regulations before fraud detection, then scored with XGBoost, Random Forest, and Linear Regression (timestamp features, weighted classes) to flag anomalies.",
@@ -189,9 +189,9 @@ export default function ResumeModal({ isOpen, onClose }) {
                   ],
                 },
                 {
-                  name: "VeriChain — AI + Blockchain Fraud Prevention (2nd Place, Breach 2025)",
+                  name: "TrustChain — AI + Blockchain Fraud Prevention (2nd Place, Breach 2025)",
                   tech: "Python, FastAPI, DeepFace, Solidity, Next.js, MongoDB",
-                  link: "https://github.com/Shreyash-Shukla/Protract-Breach",
+                  link: "https://github.com/Shreyash-Shukla/TrustChain",
                   bullets: [
                     "Built a fraud-prevention platform combining biometric face-recognition authentication (OpenCV, DeepFace), ML fraud detection, and blockchain audit trails.",
                     "Trained a Random Forest classifier on a public Ethereum transactions dataset (Kaggle) to flag fraudulent transactions.",
@@ -201,7 +201,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 {
                   name: "DriveMesh — Encrypted & Distributed Cloud Storage over GDrive",
                   tech: "Python, Flask, Google Drive API, OAuth 2.0",
-                  link: "https://github.com/Shreyash-Shukla/distributed-drive-client",
+                  link: "https://github.com/Shreyash-Shukla/DriveMesh",
                   bullets: [
                     "Built a Python/Flask app that pools multiple Google Drive accounts into one encrypted, distributed storage layer with a drag-and-drop file manager.",
                     "Engineered a chunking pipeline that splits files into 5MB blocks, encrypts each with Fernet, and distributes them round-robin across accounts via the Google Drive API v3, parallelized with ThreadPoolExecutor (up to 5 threads per account).",
@@ -211,7 +211,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 {
                   name: "DAGent — AI Workflow Orchestration Platform",
                   tech: "Next.js 14, TypeScript, MongoDB, NextAuth, Redux Toolkit",
-                  link: "https://github.com/Shreyash-Shukla/tictechtoe",
+                  link: "https://github.com/Shreyash-Shukla/DAGent",
                   bullets: [
                     "Built an AI workflow orchestration platform that converts natural-language requests into executable DAG workflows, running independent tool nodes in parallel.",
                     "Integrated MCP tools (Drive, Gmail, Contacts) secured with Google OAuth 2.0 via NextAuth, with auto-refreshing tokens stored in a custom MongoDB adapter.",

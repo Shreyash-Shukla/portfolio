@@ -12,22 +12,22 @@ const GithubIcon = () => (
 export default function Projects() {
   const projects = [
     {
-      title: "HackNuThon",
-      subtitle: "1st Place — Nirma Hackathon",
+      title: "FraudShield",
+      subtitle: "1st Place — HackNUthon 6.0",
       bgHex: "bg-[#00FF6A]",
       image: "/hacknuthon.jpg",
-      githubUrl: "https://github.com/Shreyash-Shukla/HackNuThon",
+      githubUrl: "https://github.com/Shreyash-Shukla/FraudShield",
       tags: ["🏆 1st Place", "Hackathon Winner", "Full Stack", "React.js", "Node.js"],
       description:
         "Secured 1st Place at Nirma Hackathon — built a full-stack web application from scratch within a strict time limit, demonstrating rapid prototyping, robust system architecture, and end-to-end deployment skills under high-pressure competitive conditions.",
       quickoTools: null,
     },
     {
-      title: "Protract-Breach",
+      title: "TrustChain",
       subtitle: "2nd Place — Breach Hackathon",
       bgHex: "bg-[#FF90E8]",
       image: "/breach.jpg",
-      githubUrl: "https://github.com/Shreyash-Shukla/Protract-Breach",
+      githubUrl: "https://github.com/Shreyash-Shukla/TrustChain",
       tags: ["🥈 2nd Place", "Hackathon Winner", "Cybersecurity", "Python", "Full Stack"],
       description:
         "Achieved 2nd Position at Breach Hackathon — engineered a cybersecurity-focused full-stack platform within a strict 24-hour sprint. Built real-time threat detection, network visualization, and security monitoring dashboards under competitive pressure.",
@@ -38,7 +38,7 @@ export default function Projects() {
       subtitle: "Encrypted & Distributed Cloud Storage",
       bgHex: "bg-[#00E5FF]",
       image: "/drivemesh.jpg",
-      githubUrl: "https://github.com/Shreyash-Shukla/distributed-drive-client",
+      githubUrl: "https://github.com/Shreyash-Shukla/DriveMesh",
       tags: ["Python", "Flask", "Google Drive API", "OAuth 2.0", "Fernet Encryption"],
       description:
         "Built a Python/Flask application that pools multiple Google Drive accounts into a single encrypted, distributed storage layer with drag-and-drop UI. Engineered a chunking pipeline splitting files into 5MB blocks, encrypted with Fernet, distributed round-robin across accounts via Google Drive API v3. Parallelized transfers with ThreadPoolExecutor.",
@@ -49,7 +49,7 @@ export default function Projects() {
       subtitle: "AI Workflow Orchestration Platform",
       bgHex: "bg-[#B388FF]",
       image: "/dagent.jpg",
-      githubUrl: "https://github.com/Shreyash-Shukla/tictechtoe",
+      githubUrl: "https://github.com/Shreyash-Shukla/DAGent",
       tags: ["Next.js 14", "TypeScript", "MongoDB", "NextAuth", "Redux Toolkit"],
       description:
         "AI-powered workflow orchestration platform that converts natural-language requests into executable DAG workflows, running independent tool nodes in parallel. Integrated MCP tool integrations (Drive, Gmail, Contacts) secured with Google OAuth 2.0 via NextAuth, with auto-refreshing tokens stored through a custom MongoDB adapter.",
