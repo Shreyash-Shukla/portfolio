@@ -10,13 +10,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white dark:bg-[#0D0D0D] border-t-4 border-black dark:border-[#2C2C2C] py-12 px-6 lg:px-12">
+    <footer className="w-full border-t-4 border-black bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-10 xl:px-12 dark:border-[#2C2C2C] dark:bg-[#0D0D0D]">
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 font-mono">
 
         {/* Left: Brand & Tagline */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <span className="font-black text-base text-gray-900 dark:text-white tracking-wider">
-            SHREYASH SHUKLA <span className="text-emerald-600 dark:text-[#00FF6A]">// PORTFOLIO</span>
+            SHREYASH SHUKLA <span className="text-indigo-600 dark:text-[#8B9CFF]">// PORTFOLIO</span>
           </span>
           <span className="text-xs text-gray-700 dark:text-gray-300">
             Computer Science @ PDEU, Gandhinagar · Ex-SWE Intern @ Quicko
@@ -61,7 +61,7 @@ export default function Footer() {
         <button
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="flex items-center gap-2 px-5 py-2.5 bg-black text-white dark:bg-[#00FF6A] dark:text-black font-black text-xs rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(0,255,106,0.3)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest font-mono"
+          className="flex items-center gap-2 rounded-xl border-2 border-black bg-black px-5 py-2.5 font-mono text-xs font-black uppercase tracking-widest text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:bg-[#8B9CFF] dark:text-black dark:shadow-[3px_3px_0px_0px_rgba(139,156,255,0.3)]"
         >
           BACK TO TOP
           <ArrowUp className="w-4 h-4" />

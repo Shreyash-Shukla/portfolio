@@ -13,7 +13,7 @@ export default function EasterEgg() {
 
   // ─── Konami Code ────────────────────────────────────────────────────────────
   const triggerKonami = useCallback(() => {
-    const colors = ["#00FF6A", "#FF90E8", "#00E5FF", "#FFC900", "#B388FF", "#FF4444"];
+    const colors = ["#8B9CFF", "#FF90E8", "#00E5FF", "#FFC900", "#B388FF", "#FF4444"];
 
     import("canvas-confetti").then((mod) => {
       const confetti = mod.default;
@@ -35,7 +35,7 @@ export default function EasterEgg() {
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%) translateY(60px);
-      background: #00FF6A;
+      background: #8B9CFF;
       color: #000;
       padding: 1rem 1.5rem;
       border-radius: 1rem;
@@ -95,17 +95,17 @@ export default function EasterEgg() {
         left: ${Math.min(e.clientX, window.innerWidth - 200)}px;
         top: ${Math.min(e.clientY, window.innerHeight - 220)}px;
         background: #0D0D0D;
-        border: 2px solid #00FF6A;
+        border: 2px solid #8B9CFF;
         border-radius: 12px;
         padding: 6px;
         z-index: 10000;
-        box-shadow: 6px 6px 0px rgba(0,255,106,0.3);
+        box-shadow: 6px 6px 0px rgba(139,156,255,0.3);
         min-width: 190px;
         font-family: monospace;
       `;
 
       menu.innerHTML = `
-        <div style="padding:6px 10px 8px;font-size:10px;font-weight:900;color:#00FF6A;letter-spacing:0.1em;border-bottom:1px solid #2C2C2C;margin-bottom:4px;">
+        <div style="padding:6px 10px 8px;font-size:10px;font-weight:900;color:#8B9CFF;letter-spacing:0.1em;border-bottom:1px solid #2C2C2C;margin-bottom:4px;">
           SHREYASH.DEV
         </div>
         ${menuItems.map((item, i) => `
@@ -114,7 +114,7 @@ export default function EasterEgg() {
             ${item.external ? 'target="_blank" rel="noopener noreferrer"' : ""}
             id="ctx-item-${i}"
             style="display:block;padding:8px 12px;color:#fff;font-size:12px;font-weight:700;border-radius:8px;cursor:pointer;text-decoration:none;"
-            onmouseover="this.style.background='#00FF6A';this.style.color='#000';"
+            onmouseover="this.style.background='#8B9CFF';this.style.color='#000';"
             onmouseout="this.style.background='';this.style.color='#fff';"
           >
             ${item.label}

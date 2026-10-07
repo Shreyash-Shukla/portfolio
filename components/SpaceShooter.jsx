@@ -37,8 +37,8 @@ function drawPlayer(ctx, x, y, flash) {
   }
   // Engine glow
   const grd = ctx.createRadialGradient(0, PLAYER_H / 2, 0, 0, PLAYER_H / 2, 18);
-  grd.addColorStop(0, "rgba(0,255,106,0.9)");
-  grd.addColorStop(1, "rgba(0,255,106,0)");
+  grd.addColorStop(0, "rgba(139,156,255,0.9)");
+  grd.addColorStop(1, "rgba(139,156,255,0)");
   ctx.fillStyle = grd;
   ctx.fillRect(-18, PLAYER_H / 2 - 18, 36, 36);
 
@@ -67,7 +67,7 @@ function drawPlayer(ctx, x, y, flash) {
   ctx.fill();
 
   // Cockpit
-  ctx.fillStyle = "#00FF6A";
+  ctx.fillStyle = "#8B9CFF";
   ctx.beginPath();
   ctx.ellipse(0, -4, 8, 12, 0, 0, Math.PI * 2);
   ctx.fill();
@@ -105,7 +105,7 @@ function drawEnemy(ctx, e) {
   const barW = ENEMY_W - 8;
   ctx.fillStyle = "#333";
   ctx.fillRect(-barW / 2, ENEMY_H / 2 - 6, barW, 4);
-  ctx.fillStyle = "#00FF6A";
+  ctx.fillStyle = "#8B9CFF";
   ctx.fillRect(-barW / 2, ENEMY_H / 2 - 6, (barW * e.hp) / e.maxHp, 4);
 
   // Label text
@@ -191,7 +191,7 @@ function drawStars(ctx, stars) {
 function drawBullets(ctx, bullets, isEnemy = false) {
   bullets.forEach((b) => {
     ctx.save();
-    ctx.shadowColor = isEnemy ? "#FF4444" : "#00FF6A";
+    ctx.shadowColor = isEnemy ? "#FF4444" : "#8B9CFF";
     ctx.shadowBlur = 8;
     const grad = ctx.createLinearGradient(b.x, b.y, b.x, b.y + b.h);
     if (isEnemy) {
@@ -199,7 +199,7 @@ function drawBullets(ctx, bullets, isEnemy = false) {
       grad.addColorStop(1, "#FF000000");
     } else {
       grad.addColorStop(0, "#FFFFFF");
-      grad.addColorStop(1, "#00FF6A");
+      grad.addColorStop(1, "#8B9CFF");
     }
     ctx.fillStyle = grad;
     ctx.fillRect(b.x, b.y, b.w, b.h);
@@ -213,7 +213,7 @@ function drawHUD(ctx, score, health, wave, isBossWave) {
   ctx.fillRect(0, 0, CANVAS_W, 36);
 
   // Score
-  ctx.fillStyle = "#00FF6A";
+  ctx.fillStyle = "#8B9CFF";
   ctx.font = "bold 11px monospace";
   ctx.textAlign = "left";
   ctx.fillText(`SCORE: ${score}`, 12, 22);
@@ -227,7 +227,7 @@ function drawHUD(ctx, score, health, wave, isBossWave) {
   ctx.fillStyle = "#555";
   ctx.fillRect(CANVAS_W - 112, 10, 100, 14);
   const hpColor =
-    health > 60 ? "#00FF6A" : health > 30 ? "#FFCC00" : "#FF4444";
+    health > 60 ? "#8B9CFF" : health > 30 ? "#FFCC00" : "#FF4444";
   ctx.fillStyle = hpColor;
   ctx.fillRect(CANVAS_W - 112, 10, health, 14);
   ctx.strokeStyle = "#FFFFFF";
@@ -335,7 +335,7 @@ export default function SpaceShooter() {
     ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
 
     // Grid
-    ctx.strokeStyle = "rgba(0,255,106,0.05)";
+    ctx.strokeStyle = "rgba(139,156,255,0.05)";
     ctx.lineWidth = 1;
     for (let i = 0; i < CANVAS_W; i += 40) {
       ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, CANVAS_H); ctx.stroke();
@@ -644,13 +644,13 @@ export default function SpaceShooter() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-2 select-none w-full max-w-[380px]">
-      <div className="relative rounded-2xl overflow-hidden border-2 border-[#00FF6A]/40 shadow-[0_0_24px_rgba(0,255,106,0.15)] w-full">
+    <div className="flex w-full max-w-[540px] select-none flex-col items-center gap-2">
+      <div className="relative w-full overflow-hidden rounded-2xl border-2 border-[#8B9CFF]/40 shadow-[0_0_24px_rgba(139,156,255,0.14)]">
         <canvas
           ref={canvasRef}
           width={CANVAS_W}
           height={CANVAS_H}
-          className="block w-full max-w-[380px] h-auto"
+          className="block h-auto w-full"
           style={{ imageRendering: "pixelated" }}
         />
 
@@ -659,7 +659,7 @@ export default function SpaceShooter() {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#070714]/90 gap-4 p-4">
             <div className="text-center px-4">
               <div className="text-4xl mb-2">🚀</div>
-              <h3 className="font-mono font-black text-[#00FF6A] text-xl mb-1">BUG BLASTER</h3>
+              <h3 className="mb-1 font-mono text-xl font-black text-[#8B9CFF]">BUG BLASTER</h3>
               <p className="font-mono text-gray-400 text-xs leading-relaxed mb-1">
                 Shoot the software bugs!
               </p>
@@ -670,7 +670,7 @@ export default function SpaceShooter() {
             </div>
             <button
               onClick={startGame}
-              className="font-mono font-black text-black bg-[#00FF6A] px-7 py-2.5 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all text-xs sm:text-sm uppercase tracking-widest"
+              className="rounded-xl border-4 border-black bg-[#8B9CFF] px-7 py-2.5 font-mono text-xs font-black uppercase tracking-widest text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:text-sm"
             >
               START GAME
             </button>
@@ -683,7 +683,7 @@ export default function SpaceShooter() {
             <div className="text-center">
               <div className="text-5xl mb-3">💀</div>
               <h3 className="font-mono font-black text-[#FF4444] text-2xl mb-1">GAME OVER</h3>
-              <p className="font-mono text-[#00FF6A] text-lg font-bold mb-1">SCORE: {displayScore}</p>
+              <p className="mb-1 font-mono text-lg font-bold text-[#8B9CFF]">SCORE: {displayScore}</p>
               <p className="font-mono text-gray-400 text-xs">The bugs have won... for now.</p>
             </div>
             <button
@@ -701,7 +701,7 @@ export default function SpaceShooter() {
             <div className="text-center">
               <div className="text-5xl mb-3">🏆</div>
               <h3 className="font-mono font-black text-[#FFCC00] text-2xl mb-1">YOU WIN!</h3>
-              <p className="font-mono text-[#00FF6A] text-lg font-bold mb-1">SCORE: {displayScore}</p>
+              <p className="mb-1 font-mono text-lg font-bold text-[#8B9CFF]">SCORE: {displayScore}</p>
               <p className="font-mono text-gray-400 text-xs">All bugs squashed. Ship it! 🚀</p>
             </div>
             <button
@@ -717,7 +717,7 @@ export default function SpaceShooter() {
       {gamePhase === "playing" && (
         <div className="flex items-center gap-4 font-mono text-xs text-gray-500">
           <span>← → or Mouse to move</span>
-          <span className="text-[#00FF6A] font-bold">AUTO-FIRE</span>
+          <span className="font-bold text-[#8B9CFF]">AUTO-FIRE</span>
         </div>
       )}
     </div>

@@ -14,7 +14,7 @@ export default function Projects() {
     {
       title: "FraudShield",
       subtitle: "1st Place — HackNUthon 6.0",
-      bgHex: "bg-[#00FF6A]",
+      bgHex: "bg-[#8B9CFF]",
       image: "/hacknuthon.jpg",
       githubUrl: "https://github.com/Shreyash-Shukla/FraudShield",
       tags: ["🏆 1st Place", "Hackathon Winner", "Full Stack", "React.js", "Node.js"],
@@ -96,21 +96,21 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto">
+    <section id="projects" className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10 xl:px-12">
       {/* Header Tag */}
       <div className="flex items-center gap-3 mb-12">
-        <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 animate-pulse"></div>
+        <div className="h-3.5 w-3.5 rounded-full bg-indigo-500 animate-pulse"></div>
         <span className="font-mono text-sm font-bold text-gray-700 dark:text-gray-400 uppercase tracking-widest">
           FEATURED PROJECTS &amp; PRODUCTS
         </span>
       </div>
 
       {/* Project Cards List */}
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-10 sm:gap-16">
         {projects.map((proj, index) => (
           <article
             key={index}
-            className={`w-full flex flex-col lg:flex-row items-center justify-between rounded-3xl border-4 border-black ${proj.bgHex} brutal-shadow-lg hover:translate-x-1.5 hover:translate-y-1.5 transition-all duration-300 p-6 md:p-10 text-black relative z-10 overflow-hidden`}
+            className={`relative z-10 flex w-full flex-col items-center justify-between overflow-hidden rounded-2xl border-4 border-black p-4 text-black transition-all duration-300 hover:translate-x-1 hover:translate-y-1 sm:rounded-3xl sm:p-6 md:p-8 lg:flex-row lg:p-10 ${proj.bgHex} brutal-shadow-lg`}
           >
             {/* Left Column: Image & Badges */}
             <div className="w-full lg:w-1/2 flex flex-col items-start justify-center gap-4">
@@ -121,7 +121,7 @@ export default function Projects() {
                     className="flex items-center gap-1.5 border-2 border-black bg-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                   >
                     {tIdx === 0 && (
-                      <span className="w-2.5 h-2.5 rounded-full border border-black flex-shrink-0 bg-emerald-500 animate-pulse"></span>
+                      <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full border border-black bg-indigo-500 animate-pulse"></span>
                     )}
                     <span className="font-mono text-[11px] font-black uppercase tracking-wider text-black">
                       {tag}
@@ -168,7 +168,7 @@ export default function Projects() {
             </div>
 
             {/* Right Column: Title, Description & Action Button */}
-            <div className="w-full lg:w-1/2 flex flex-col items-start justify-between lg:pl-10 pt-6 lg:pt-0">
+            <div className="flex w-full flex-col items-start justify-between pt-6 lg:w-1/2 lg:pl-8 lg:pt-0 xl:pl-10">
               <div className="mb-1">
                 <p className="font-mono text-xs font-bold text-black/70 uppercase tracking-widest mb-1">
                   {proj.subtitle}
@@ -237,12 +237,12 @@ export default function Projects() {
       </div>
 
       {/* Explore All Projects CTA */}
-      <div className="flex items-center justify-center w-full py-16">
+      <div className="flex w-full items-center justify-center py-12 sm:py-16">
         <a
           href="https://github.com/Shreyash-Shukla"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-3 bg-emerald-400 dark:bg-[#00FF6A] text-black border-4 border-black py-4 px-10 font-mono font-black text-xl rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all"
+          className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border-4 border-black bg-indigo-400 px-5 py-4 text-center font-mono text-sm font-black text-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none sm:w-auto sm:px-10 sm:text-xl dark:bg-[#8B9CFF]"
         >
           <span>EXPLORE SHREYASH&apos;S GITHUB</span>
           <ArrowRight className="w-6 h-6" />

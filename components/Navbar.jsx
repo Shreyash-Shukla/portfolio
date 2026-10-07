@@ -26,22 +26,22 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 dark:bg-[#0D0D0D]/95 border-b-2 border-black dark:border-[#2C2C2C] shadow-md backdrop-blur-md py-4"
-          : "bg-white/80 dark:bg-[#0D0D0D]/80 border-b border-gray-200 dark:border-[#2C2C2C]/50 backdrop-blur-sm py-5"
+          ? "bg-white/95 dark:bg-[#0D0D0D]/95 border-b-2 border-black dark:border-[#2C2C2C] shadow-md backdrop-blur-md py-2.5 sm:py-3"
+          : "bg-white/80 dark:bg-[#0D0D0D]/80 border-b border-gray-200 dark:border-[#2C2C2C]/50 backdrop-blur-sm py-3 sm:py-4"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-2 px-3 sm:px-6 lg:px-10 xl:px-12">
         {/* Brand */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-black dark:bg-[#00FF6A] text-white dark:text-black rounded-lg flex items-center justify-center font-mono font-black text-xl border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+        <a href="#" className="group flex min-w-0 items-center gap-2 sm:gap-3">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-black font-mono text-lg font-black text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5 sm:h-10 sm:w-10 sm:text-xl dark:border-white dark:bg-[#8B9CFF] dark:text-black">
             S
           </div>
-          <div className="flex flex-col">
-            <span className="font-mono font-black text-lg text-gray-900 dark:text-white tracking-wider">
-              SHREYASH<span className="text-emerald-600 dark:text-[#00FF6A]">.DEV</span>
+          <div className="flex min-w-0 flex-col">
+            <span className="whitespace-nowrap font-mono text-sm font-black tracking-wide text-gray-900 min-[390px]:text-base sm:text-lg sm:tracking-wider dark:text-white">
+              SHREYASH<span className="text-indigo-600 dark:text-[#8B9CFF]">.DEV</span>
             </span>
             <span className="font-mono text-[10px] text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest hidden sm:inline-flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
               GANDHINAGAR, GUJARAT
             </span>
           </div>
@@ -53,21 +53,21 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             <a
               key={link.name}
               href={link.href}
-              className="text-gray-900 dark:text-gray-200 hover:text-black dark:hover:text-[#00FF6A] transition-colors hover:underline decoration-2 underline-offset-4"
+              className="text-gray-900 transition-colors hover:text-black hover:underline decoration-2 underline-offset-4 dark:text-gray-200 dark:hover:text-[#8B9CFF]"
             >
               {link.name}
             </a>
           ))}
           <button
             onClick={onOpenResume}
-            className="font-mono text-xs font-bold bg-black text-[#00FF6A] dark:bg-[#00FF6A] dark:text-black px-4 py-1.5 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
+            className="rounded-lg border-2 border-black bg-black px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-[#AEB8FF] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:bg-[#8B9CFF] dark:text-black"
           >
             [ RESUME ]
           </button>
         </nav>
 
         {/* Right Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-3">
           {/* Social Icons */}
           <div className="hidden sm:flex items-center gap-3 pr-3 border-r border-gray-300 dark:border-gray-700">
             <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X" className="text-[#1DA1F2] hover:scale-110 transition-transform">
@@ -97,7 +97,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             onClick={() => setIsDarkMode(!isDarkMode)}
             aria-label="Batman Mode"
             title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            className="group flex items-center justify-center p-1.5 transition-all cursor-pointer"
+            className="group flex items-center justify-center p-1 transition-all cursor-pointer sm:p-1.5"
           >
             {isDarkMode ? (
               <Image
@@ -105,7 +105,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
                 alt="Batman Mode"
                 width={48}
                 height={48}
-                className="w-10 h-10 transition-all duration-300 group-hover:scale-125 invert-[92%] sepia-[94%] saturate-[6179%] hue-rotate-[352deg] brightness-[101%] contrast-[106%]"
+                className="h-8 w-8 opacity-80 invert transition-all duration-300 group-hover:scale-110 sm:h-10 sm:w-10"
               />
             ) : (
               <Image
@@ -113,7 +113,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
                 alt="Batman Mode"
                 width={48}
                 height={48}
-                className="w-10 h-10 transition-all duration-300 group-hover:scale-125 grayscale opacity-50"
+                className="h-8 w-8 grayscale opacity-50 transition-all duration-300 group-hover:scale-110 sm:h-10 sm:w-10"
               />
             )}
           </button>
@@ -121,7 +121,9 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden w-10 h-10 rounded-lg bg-black text-white dark:bg-white dark:text-black border-2 border-black flex items-center justify-center"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border-2 border-black bg-black text-white lg:hidden sm:h-10 sm:w-10 dark:bg-white dark:text-black"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -130,20 +132,20 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-[#0D0D0D] border-b-4 border-black dark:border-[#00FF6A] px-6 py-6 font-mono font-bold flex flex-col gap-4">
+        <div className="flex max-h-[calc(100vh-4rem)] flex-col gap-3 overflow-y-auto border-b-4 border-black bg-white px-4 py-5 font-mono font-bold lg:hidden sm:px-6 dark:border-[#8B9CFF] dark:bg-[#0D0D0D]">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 text-lg text-gray-900 dark:text-white border-b border-gray-100 dark:border-gray-800 hover:text-[#00FF6A]"
+              className="border-b border-gray-100 py-2 text-base text-gray-900 hover:text-[#6675D9] sm:text-lg dark:border-gray-800 dark:text-white dark:hover:text-[#8B9CFF]"
             >
               {link.name}
             </a>
           ))}
           <button
             onClick={() => { setMobileMenuOpen(false); onOpenResume(); }}
-            className="py-2 text-lg text-left text-emerald-600 dark:text-[#00FF6A] font-black border-b border-gray-100 dark:border-gray-800 font-mono uppercase tracking-widest"
+            className="border-b border-gray-100 py-2 text-left font-mono text-base font-black uppercase tracking-widest text-indigo-600 sm:text-lg dark:border-gray-800 dark:text-[#8B9CFF]"
           >
             [ RESUME ]
           </button>

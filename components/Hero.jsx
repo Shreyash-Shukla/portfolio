@@ -6,8 +6,8 @@ import dynamic from "next/dynamic";
 const SpaceShooter = dynamic(() => import("./SpaceShooter"), {
   ssr: false,
   loading: () => (
-    <div className="w-full max-w-[380px] h-[440px] rounded-2xl border-2 border-[#00FF6A]/30 bg-[#070714] flex items-center justify-center">
-      <span className="font-mono text-[#00FF6A] text-sm animate-pulse">Loading game...</span>
+    <div className="w-full max-w-[540px] aspect-[19/22] rounded-2xl border-2 border-[#8B9CFF]/30 bg-[#070714] flex items-center justify-center">
+      <span className="font-mono text-[#8B9CFF] text-sm animate-pulse">Loading game...</span>
     </div>
   ),
 });
@@ -61,14 +61,14 @@ export default function Hero({ onOpenResume }) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-20 lg:pt-16 pb-10 px-6 lg:px-12 max-w-[1440px] mx-auto"
+      className="flex min-h-screen items-center px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-10 xl:px-12 xl:pt-24 max-w-[1440px] mx-auto"
     >
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-10 2xl:gap-12">
 
         {/* ── Left: Game ── */}
-        <div className="flex flex-col items-center lg:items-start gap-2.5 order-2 lg:order-1 lg:-mt-10">
-          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-emerald-700 dark:text-[#00FF6A] bg-emerald-500/10 dark:bg-[#00FF6A]/10 border border-emerald-500/30 dark:border-[#00FF6A]/30 rounded-full px-3 py-1 mb-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-[#00FF6A] animate-pulse"></span>
+        <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:order-1 xl:items-start">
+          <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-[10px] font-bold text-indigo-700 sm:text-xs dark:border-[#8B9CFF]/30 dark:bg-[#8B9CFF]/10 dark:text-[#8B9CFF]">
+            <span className="h-2 w-2 rounded-full bg-indigo-600 animate-pulse dark:bg-[#8B9CFF]"></span>
             MINI GAME — BUG BLASTER
           </div>
           <SpaceShooter />
@@ -78,16 +78,16 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         {/* ── Right: Bio ── */}
-        <div className="order-1 lg:order-2 flex flex-col gap-7">
+        <div className="order-1 flex min-w-0 flex-col gap-6 xl:order-2 xl:gap-7">
           {/* Name */}
           <div>
             <p className="font-mono text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-[0.25em] mb-1">
               Hello, World! I&apos;m
             </p>
-            <h1 className="font-mono font-black text-5xl lg:text-6xl xl:text-7xl text-gray-900 dark:text-white leading-tight tracking-tight">
+            <h1 className="font-mono text-[clamp(2.65rem,12vw,4.5rem)] font-black leading-[1.03] tracking-tight text-gray-900 dark:text-white">
               SHREYASH
               <br />
-              <span className="text-emerald-600 dark:text-[#00FF6A]">SHUKLA</span>
+              <span className="text-indigo-600 dark:text-[#8B9CFF]">SHUKLA</span>
               <span className="text-gray-900 dark:text-white">.</span>
             </h1>
           </div>
@@ -96,7 +96,7 @@ export default function Hero({ onOpenResume }) {
           <div className="h-10 flex items-center">
             <span className="font-mono text-lg lg:text-xl text-gray-800 dark:text-gray-200 font-semibold">
               {displayed}
-              <span className="inline-block w-0.5 h-5 bg-emerald-600 dark:bg-[#00FF6A] ml-0.5 animate-pulse"></span>
+              <span className="ml-0.5 inline-block h-5 w-0.5 animate-pulse bg-indigo-600 dark:bg-[#8B9CFF]"></span>
             </span>
           </div>
 
@@ -117,7 +117,7 @@ export default function Hero({ onOpenResume }) {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-white dark:bg-white/5 border-2 border-gray-300 dark:border-white/10 rounded-xl p-3 text-center hover:border-green-500 dark:hover:border-[#00FF6A]/50 transition-colors shadow-sm"
+                className="rounded-xl border-2 border-gray-300 bg-white p-3 text-center shadow-sm transition-colors hover:border-indigo-500 dark:border-white/10 dark:bg-white/5 dark:hover:border-[#8B9CFF]/50"
               >
                 <p className="font-mono font-black text-xl sm:text-2xl text-gray-900 dark:text-white">
                   {s.value}
@@ -130,10 +130,10 @@ export default function Hero({ onOpenResume }) {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mt-1">
+          <div className="mt-1 grid grid-cols-1 gap-3 min-[390px]:grid-cols-2 sm:flex sm:flex-wrap">
             <button
               onClick={onOpenResume}
-              className="neo-btn font-mono font-black text-sm bg-emerald-400 dark:bg-[#00FF6A] text-black px-7 py-3 rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
+              className="neo-btn rounded-xl border-4 border-black bg-indigo-400 px-5 py-3 font-mono text-sm font-black uppercase tracking-widest text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:px-7 dark:bg-[#8B9CFF]"
             >
               View Resume
             </button>
@@ -148,7 +148,7 @@ export default function Hero({ onOpenResume }) {
           {/* Scroll hint */}
           <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400 font-mono text-xs">
             <span>Scroll to explore</span>
-            <span className="animate-bounce text-emerald-600 dark:text-[#00FF6A] font-bold">↓</span>
+            <span className="animate-bounce font-bold text-indigo-600 dark:text-[#8B9CFF]">↓</span>
           </div>
         </div>
       </div>

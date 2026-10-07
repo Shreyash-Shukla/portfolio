@@ -8,8 +8,8 @@ export default function Hackathons() {
       title: "1st Place – Nirma Hackathon",
       category: "Hackathon Victory",
       badge: "CHAMPION",
-      badgeBg: "bg-[#00FF6A] text-black",
-      borderHex: "border-black dark:border-[#00FF6A]",
+      badgeBg: "bg-[#8B9CFF] text-black",
+      borderHex: "border-black dark:border-[#8B9CFF]",
       cardBg: "bg-white dark:bg-[#1A1A1A]",
       icon: <Trophy className="w-8 h-8 text-amber-500" />,
       description:
@@ -74,7 +74,7 @@ export default function Hackathons() {
   ];
 
   return (
-    <section id="hackathons" className="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto">
+    <section id="hackathons" className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10 xl:px-12">
       {/* Header Tag */}
       <div className="flex flex-col items-center text-center mb-16">
         <div className="inline-flex items-center gap-2.5 mb-4 font-mono text-xs font-bold text-gray-700 dark:text-gray-400 uppercase tracking-widest bg-gray-200 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-300 dark:border-white/10">
@@ -82,8 +82,8 @@ export default function Hackathons() {
           <span>HACKATHONS & ACHIEVEMENTS</span>
         </div>
 
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-mont text-gray-900 dark:text-white uppercase tracking-tight mb-4">
-          Victories & <span className="text-emerald-600 dark:text-[#00FF6A]">Milestones</span>
+        <h2 className="mb-4 font-mont text-3xl font-black uppercase tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+          Victories & <span className="text-indigo-600 dark:text-[#8B9CFF]">Milestones</span>
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
           Demonstrated competitive engineering excellence across hackathons, algorithmic problem solving, and academic awards.
@@ -91,7 +91,7 @@ export default function Hackathons() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {achievements.map((item, idx) => (
           <div
             key={idx}

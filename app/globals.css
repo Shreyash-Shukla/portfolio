@@ -7,7 +7,7 @@
   --background: #f0f4f8;
   --foreground: #0f172a;
   --card-bg: #ffffff;
-  --accent-green: #059669;
+  --accent-green: #4f46e5;
   --accent-pink: #db2777;
   --accent-cyan: #0284c7;
   --accent-purple: #7c3aed;
@@ -21,7 +21,7 @@
   --foreground: #F3F4F6;
   --card-bg: #1A1A1A;
   --border-color: #2C2C2C;
-  --shadow-color: rgba(0, 255, 106, 0.3);
+  --shadow-color: rgba(139, 156, 255, 0.3);
 }
 
 body {
@@ -50,8 +50,8 @@ body {
 
 .dark .cyber-grid {
   background-image: 
-    linear-gradient(rgba(0, 255, 106, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 106, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(139, 156, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 156, 255, 0.065) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .dark .brutal-shadow {
-  box-shadow: 6px 6px 0px 0px rgba(0, 255, 106, 0.4);
+  box-shadow: 6px 6px 0px 0px rgba(139, 156, 255, 0.32);
 }
 
 .brutal-shadow-lg {
@@ -79,8 +79,8 @@ body {
 }
 
 .dark .brutal-btn {
-  border-color: #00FF6A;
-  box-shadow: 4px 4px 0px 0px rgba(0, 255, 106, 0.4);
+  border-color: #8B9CFF;
+  box-shadow: 4px 4px 0px 0px rgba(139, 156, 255, 0.32);
 }
 
 .brutal-btn:hover {
@@ -89,7 +89,7 @@ body {
 }
 
 .dark .brutal-btn:hover {
-  box-shadow: 2px 2px 0px 0px rgba(0, 255, 106, 0.4);
+  box-shadow: 2px 2px 0px 0px rgba(139, 156, 255, 0.32);
 }
 
 .brutal-btn:active {
@@ -100,8 +100,8 @@ body {
 /* === Custom Scrollbar === */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: #00c853; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #00FF6A; }
+::-webkit-scrollbar-thumb { background: #6675d9; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8B9CFF; }
 
 /* === Typewriter cursor === */
 @keyframes blink {
@@ -155,9 +155,26 @@ textarea::placeholder {
 
 /* Hero: game subtitle text */
 :root:not(.dark) .hero-game-label {
-  color: #065f46;
-  background: rgba(0, 200, 83, 0.12);
-  border-color: rgba(0, 200, 83, 0.3);
+  color: #3730a3;
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.28);
+}
+
+/* Keep anchored sections clear of the fixed header. */
+section[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+@media (max-width: 639px) {
+  .brutal-shadow,
+  .dark .brutal-shadow {
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .brutal-shadow-lg,
+  .dark .brutal-shadow-lg {
+    box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.78);
+  }
 }
 
 /* Hackathon cards: make description text darker in light mode */
