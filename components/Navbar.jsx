@@ -18,6 +18,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
     { name: "[ EXPERTISE ]", href: "#expertise" },
     { name: "[ HACKATHONS ]", href: "#hackathons" },
     { name: "[ PROJECTS ]", href: "#projects" },
+    { name: "[ GITHUB ]", href: "#github" },
     { name: "[ PROCESS ]", href: "#pipeline" },
     { name: "[ CONTACT ]", href: "#contact" },
   ];
