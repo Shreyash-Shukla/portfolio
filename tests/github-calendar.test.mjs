@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { parseCalendar } from "../app/api/github/route.js";
+import { calendarWeeks } from "../lib/github-calendar.js";
 
 test("reads daily counts from GitHub's current table tooltips", () => {
   const markup = `
@@ -26,4 +27,16 @@ test("keeps SVG data-count support", () => {
   assert.deepEqual(parseCalendar(markup, 2026).days, [
     { date: "2026-10-10", level: 4, count: 12 },
   ]);
+});
+
+test("includes yesterday and today and ends in the current week", () => {
+  const weeks = calendarWeeks([
+    { date: "2026-10-10", level: 1, count: 1 },
+    { date: "2026-10-11", level: 2, count: 2 },
+  ], 2026, "2026-10-11");
+  const days = weeks.flat().filter(Boolean);
+  assert.equal(days.at(-2).date, "2026-10-10");
+  assert.equal(days.at(-1).date, "2026-10-11");
+  assert.equal(days.at(-1).count, 2);
+  assert.equal(weeks.at(-1).length, 7);
 });

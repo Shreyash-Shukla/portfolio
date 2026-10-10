@@ -27,7 +27,7 @@ export default function Home() {
   }, [isDarkMode]);
 
   return (
-    <div className="min-h-screen w-full relative cyber-grid">
+    <div className="min-h-screen w-full relative">
       {/* Navbar */}
       <Navbar
         isDarkMode={isDarkMode}
@@ -38,10 +38,10 @@ export default function Home() {
       {/* Main Page Sections */}
       <main className="relative z-10">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
+        <GithubActivity />
         <TechStack />
         <Hackathons />
         <Projects />
-        <GithubActivity />
         <Pipeline />
         <Contact />
       </main>

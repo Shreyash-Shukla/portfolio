@@ -25,7 +25,6 @@ const ROLES = [
 
 export default function Hero({ onOpenResume }) {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
 
@@ -43,13 +42,16 @@ export default function Hero({ onOpenResume }) {
       if (charIndex > 0) {
         timeout = setTimeout(() => setCharIndex((c) => c - 1), 40);
       } else {
-        setIsDeleting(false);
-        setRoleIndex((r) => (r + 1) % ROLES.length);
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setRoleIndex((r) => (r + 1) % ROLES.length);
+        }, 0);
       }
     }
-    setDisplayed(current.slice(0, charIndex));
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, roleIndex]);
+
+  const displayed = ROLES[roleIndex].slice(0, charIndex);
 
   const stats = [
     { value: "9.72", label: "CGPA / 10" },
@@ -61,14 +63,14 @@ export default function Hero({ onOpenResume }) {
   return (
     <section
       id="hero"
-      className="flex min-h-screen items-center px-4 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-10 xl:px-12 xl:pt-24 max-w-[1440px] mx-auto"
+      className="mx-auto flex min-h-screen max-w-[1440px] items-center px-4 pb-14 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-10 xl:px-12"
     >
       <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-10 2xl:gap-12">
 
         {/* ── Left: Game ── */}
-        <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:order-1 xl:items-start">
-          <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-[10px] font-bold text-indigo-700 sm:text-xs dark:border-[#8B9CFF]/30 dark:bg-[#8B9CFF]/10 dark:text-[#8B9CFF]">
-            <span className="h-2 w-2 rounded-full bg-indigo-600 animate-pulse dark:bg-[#8B9CFF]"></span>
+        <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:items-end">
+          <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-[#39d353]/40 bg-[#39d353]/10 px-3 py-1 font-mono text-[10px] font-bold text-[#176c2d] sm:text-xs dark:text-[#39d353]">
+            <span className="h-2 w-2 rounded-full bg-[#39d353] animate-pulse"></span>
             MINI GAME — BUG BLASTER
           </div>
           <SpaceShooter />
@@ -78,16 +80,16 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         {/* ── Right: Bio ── */}
-        <div className="order-1 flex min-w-0 flex-col gap-6 xl:order-2 xl:gap-7">
+        <div className="order-1 flex min-w-0 flex-col gap-6 xl:gap-7">
           {/* Name */}
           <div>
-            <p className="font-mono text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-[0.25em] mb-1">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.25em] text-[#269d47] dark:text-[#39d353]">
               Hello, World! I&apos;m
             </p>
-            <h1 className="font-mono text-[clamp(2.65rem,12vw,4.5rem)] font-black leading-[1.03] tracking-tight text-gray-900 dark:text-white">
+            <h1 className="font-mont text-[clamp(2.65rem,10vw,5.5rem)] font-black leading-[1.02] tracking-[-0.05em] text-gray-900 dark:text-white">
               SHREYASH
               <br />
-              <span className="text-indigo-600 dark:text-[#8B9CFF]">SHUKLA</span>
+              <span className="text-[#209c45] dark:text-[#39d353]">SHUKLA</span>
               <span className="text-gray-900 dark:text-white">.</span>
             </h1>
           </div>
@@ -96,12 +98,12 @@ export default function Hero({ onOpenResume }) {
           <div className="h-10 flex items-center">
             <span className="font-mono text-lg lg:text-xl text-gray-800 dark:text-gray-200 font-semibold">
               {displayed}
-              <span className="ml-0.5 inline-block h-5 w-0.5 animate-pulse bg-indigo-600 dark:bg-[#8B9CFF]"></span>
+              <span className="ml-0.5 inline-block h-5 w-0.5 animate-pulse bg-[#39d353]"></span>
             </span>
           </div>
 
           {/* Bio */}
-          <p className="font-mono text-sm text-gray-800 dark:text-gray-200 leading-relaxed max-w-lg">
+          <p className="max-w-xl text-base leading-relaxed text-gray-800 dark:text-gray-300 sm:text-lg">
             I&apos;m a Computer Science student at{" "}
             <span className="text-gray-900 dark:text-white font-bold">
               Pandit Deendayal Energy University
@@ -117,7 +119,7 @@ export default function Hero({ onOpenResume }) {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-xl border-2 border-gray-300 bg-white p-3 text-center shadow-sm transition-colors hover:border-indigo-500 dark:border-white/10 dark:bg-white/5 dark:hover:border-[#8B9CFF]/50"
+                className="rounded-xl border border-gray-300 bg-white p-3 text-center dark:border-white/20 dark:bg-[#111]"
               >
                 <p className="font-mono font-black text-xl sm:text-2xl text-gray-900 dark:text-white">
                   {s.value}
@@ -133,13 +135,13 @@ export default function Hero({ onOpenResume }) {
           <div className="mt-1 grid grid-cols-1 gap-3 min-[390px]:grid-cols-2 sm:flex sm:flex-wrap">
             <button
               onClick={onOpenResume}
-              className="neo-btn rounded-xl border-4 border-black bg-indigo-400 px-5 py-3 font-mono text-sm font-black uppercase tracking-widest text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:px-7 dark:bg-[#8B9CFF]"
+              className="rounded-md bg-[#39d353] px-5 py-3 font-mono text-sm font-black uppercase tracking-widest text-black transition-colors hover:bg-[#67ee7d] sm:px-7"
             >
               View Resume
             </button>
             <a
               href="#contact"
-              className="neo-btn font-mono font-black text-sm bg-white dark:bg-black text-gray-900 dark:text-white px-7 py-3 rounded-xl border-4 border-black dark:border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all uppercase tracking-widest"
+              className="rounded-md border border-black bg-white px-7 py-3 font-mono text-sm font-black uppercase tracking-widest text-gray-900 transition-colors hover:bg-gray-100 dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black"
             >
               Hire Me
             </a>
@@ -148,7 +150,7 @@ export default function Hero({ onOpenResume }) {
           {/* Scroll hint */}
           <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400 font-mono text-xs">
             <span>Scroll to explore</span>
-            <span className="animate-bounce font-bold text-indigo-600 dark:text-[#8B9CFF]">↓</span>
+            <span className="animate-bounce font-bold text-[#39d353]">↓</span>
           </div>
         </div>
       </div>

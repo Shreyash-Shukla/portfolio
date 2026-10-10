@@ -248,13 +248,7 @@ export default function SpaceShooter() {
     enemies: [],
     boss: null,
     particles: [],
-    stars: Array.from({ length: 80 }, () => ({
-      x: Math.random() * CANVAS_W,
-      y: Math.random() * CANVAS_H,
-      r: Math.random() * 1.5 + 0.3,
-      alpha: Math.random() * 0.8 + 0.2,
-      speed: Math.random() * 1.5 + 0.4,
-    })),
+    stars: [],
     score: 0,
     health: 100,
     wave: 1,
@@ -276,6 +270,17 @@ export default function SpaceShooter() {
   const [gamePhase, setGamePhase] = useState("idle"); // idle | playing | gameover | win
   const [displayScore, setDisplayScore] = useState(0);
   const rafRef = useRef(null);
+  const gameLoopRef = useRef(null);
+
+  useEffect(() => {
+    stateRef.current.stars = Array.from({ length: 80 }, () => ({
+      x: Math.random() * CANVAS_W,
+      y: Math.random() * CANVAS_H,
+      r: Math.random() * 1.5 + 0.3,
+      alpha: Math.random() * 0.8 + 0.2,
+      speed: Math.random() * 1.5 + 0.4,
+    }));
+  }, []);
 
   const spawnEnemy = useCallback(() => {
     const type = ENEMY_TYPES[Math.floor(Math.random() * ENEMY_TYPES.length)];
@@ -554,8 +559,12 @@ export default function SpaceShooter() {
     }
 
     setDisplayScore(s.score);
-    rafRef.current = requestAnimationFrame(gameLoop);
+    rafRef.current = requestAnimationFrame(() => gameLoopRef.current());
   }, [spawnEnemy, spawnBoss, addParticles]);
+
+  useEffect(() => {
+    gameLoopRef.current = gameLoop;
+  }, [gameLoop]);
 
   const startGame = useCallback(() => {
     const s = stateRef.current;

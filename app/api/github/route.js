@@ -36,17 +36,23 @@ export function parseCalendar(markup, year) {
 }
 
 export async function GET() {
-  const year = new Date().getUTCFullYear();
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const year = Number(today.slice(0, 4));
   const calendarUrl = `https://github.com/users/${USERNAME}/contributions?from=${year}-01-01&to=${year}-12-31`;
 
   const [profileResult, calendarResult] = await Promise.allSettled([
     fetch(PROFILE_URL, {
       headers: { Accept: "application/vnd.github+json", "User-Agent": "shreyash-portfolio" },
-      next: { revalidate: 3600 },
+      next: { revalidate: 7200 },
     }),
     fetch(calendarUrl, {
       headers: { Accept: "text/html", "User-Agent": "shreyash-portfolio" },
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     }),
   ]);
 
@@ -74,5 +80,6 @@ export async function GET() {
     },
     calendar,
     year,
+    today,
   });
 }

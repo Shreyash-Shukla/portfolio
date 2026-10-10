@@ -4,30 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { BookMarked, Building2, MapPin, Users, UserRoundPlus, ExternalLink } from "lucide-react";
 import ContributionGraph from "./ContributionGraph";
+import { calendarWeeks } from "../lib/github-calendar";
 
 const PROFILE_URL = "https://github.com/Shreyash-Shukla";
-
-function calendarWeeks(days, year) {
-  const byDate = new Map(days.map((day) => [day.date, day]));
-  const today = new Date().toISOString().slice(0, 10);
-  const first = new Date(Date.UTC(year, 0, 1));
-  first.setUTCDate(first.getUTCDate() - first.getUTCDay());
-  const last = new Date(Date.UTC(year, 11, 31));
-  last.setUTCDate(last.getUTCDate() + (6 - last.getUTCDay()));
-  const weeks = [];
-
-  for (let date = new Date(first); date <= last; date.setUTCDate(date.getUTCDate() + 7)) {
-    const week = [];
-    for (let row = 0; row < 7; row++) {
-      const current = new Date(date);
-      current.setUTCDate(current.getUTCDate() + row);
-      const key = current.toISOString().slice(0, 10);
-      week.push(current.getUTCFullYear() === year && key <= today ? (byDate.get(key) ?? { date: key, level: 0, count: null }) : null);
-    }
-    weeks.push(week);
-  }
-  return weeks;
-}
 
 export default function GithubActivity() {
   const [data, setData] = useState(null);
@@ -35,31 +14,48 @@ export default function GithubActivity() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/github", { signal: controller.signal })
+    const load = () => fetch("/api/github", { signal: controller.signal, cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("GitHub unavailable");
         return response.json();
       })
-      .then(setData)
+      .then((result) => { setData(result); setFailed(false); })
       .catch((error) => {
         if (error.name !== "AbortError") setFailed(true);
       });
-    return () => controller.abort();
+    load();
+    const refresh = setInterval(() => {
+      if (document.visibilityState === "visible") load();
+    }, 300000);
+    const onVisible = () => {
+      if (document.visibilityState === "visible") load();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      controller.abort();
+      clearInterval(refresh);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
   }, []);
 
   const profile = data?.profile;
-  const weeks = useMemo(() => data?.calendar.days.length ? calendarWeeks(data.calendar.days, data.year) : [], [data]);
+  const weeks = useMemo(() => data?.calendar.days.length ? calendarWeeks(data.calendar.days, data.year, data.today) : [], [data]);
 
   return (
-    <section id="github" className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10 xl:px-12">
-      <div className="mb-10 flex items-center gap-3">
-        <span className="h-3.5 w-3.5 rounded-full bg-[#39d353]" />
-        <span className="font-mono text-sm font-bold uppercase tracking-widest text-gray-700 dark:text-gray-400">GITHUB ACTIVITY</span>
+    <section id="github" className="site-section">
+      <div className="section-heading">
+        <span className="section-eyebrow">LIVE FROM GITHUB</span>
+        <h2 className="section-title">GitHub <span>Activity</span></h2>
+        <p className="section-copy">Current profile stats and contributions, refreshed from GitHub.</p>
       </div>
 
-      <div className="rounded-[28px] border-4 border-white bg-[#0d0d0d] p-5 text-white shadow-[10px_10px_0_0_#ffffff] sm:p-9 lg:p-10">
+      <div className="rounded-[28px] border-[3px] border-white bg-[#0d0d0d] p-5 text-white shadow-[8px_8px_0_0_#ffffff] sm:p-9 lg:p-10">
         <div className="flex flex-wrap items-center gap-5">
-          <Image src={profile?.avatarUrl ?? "https://github.com/Shreyash-Shukla.png"} alt="Shreyash Shukla's GitHub avatar" width={72} height={72} className="h-[72px] w-[72px] rounded-full border-2 border-white object-cover" />
+          {profile?.avatarUrl ? (
+            <Image src={profile.avatarUrl} alt="Shreyash Shukla's GitHub avatar" width={72} height={72} className="h-[72px] w-[72px] rounded-full border-2 border-white object-cover" />
+          ) : (
+            <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full border-2 border-white bg-[#242424] font-mont text-xl font-black" aria-hidden="true">SS</div>
+          )}
           <div className="min-w-0">
             <a href={PROFILE_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-mont text-2xl font-black hover:text-[#39d353] sm:text-3xl">
               {profile?.name ?? "Shreyash Shukla"}
