@@ -58,6 +58,7 @@ export async function GET() {
     profile: {
       name: profile.name || profile.login,
       login: profile.login,
+      avatarUrl: profile.avatar_url,
       bio: profile.bio,
       company: profile.company,
       location: profile.location,

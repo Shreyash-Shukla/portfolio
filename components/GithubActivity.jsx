@@ -32,6 +32,7 @@ function calendarWeeks(days, year) {
 export default function GithubActivity() {
   const [data, setData] = useState(null);
   const [failed, setFailed] = useState(false);
+  const [activeDay, setActiveDay] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -59,7 +60,7 @@ export default function GithubActivity() {
 
       <div className="rounded-[28px] border-4 border-white bg-[#0d0d0d] p-5 text-white shadow-[10px_10px_0_0_#ffffff] sm:p-9 lg:p-10">
         <div className="flex flex-wrap items-center gap-5">
-          <Image src="/pfp.png" alt="Shreyash Shukla" width={72} height={72} className="h-[72px] w-[72px] rounded-full border-2 border-white object-cover" />
+          <Image src={profile?.avatarUrl ?? "https://github.com/Shreyash-Shukla.png"} alt="Shreyash Shukla's GitHub avatar" width={72} height={72} className="h-[72px] w-[72px] rounded-full border-2 border-white object-cover" />
           <div className="min-w-0">
             <a href={PROFILE_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-mont text-2xl font-black hover:text-[#39d353] sm:text-3xl">
               {profile?.name ?? "Shreyash Shukla"}
@@ -94,14 +95,19 @@ export default function GithubActivity() {
 
           {weeks.length > 0 ? (
             <div className="overflow-x-auto pb-2">
-              <div className="flex w-max gap-[3px] sm:gap-1" role="img" aria-label={`${data.calendar.total ?? "GitHub"} contributions in ${data.year}`}>
+              <div className="flex w-max gap-[3px] sm:gap-1" role="group" aria-label={`${data.calendar.total ?? "GitHub"} contributions in ${data.year}`}>
                 {weeks.map((week, index) => (
                   <div key={index} className="flex flex-col gap-[3px] sm:gap-1">
                     {week.map((day, row) => day ? (
-                      <span
+                      <button
                         key={day.date}
-                        title={`${day.date}: ${day.count === null ? `activity level ${day.level}` : `${day.count} contribution${day.count === 1 ? "" : "s"}`}`}
-                        className="h-[11px] w-[11px] rounded-full transition-transform hover:scale-125 sm:h-[13px] sm:w-[13px]"
+                        type="button"
+                        aria-label={`${day.date}: ${day.count === null ? `activity level ${day.level}` : `${day.count} contribution${day.count === 1 ? "" : "s"}`}`}
+                        onMouseEnter={() => setActiveDay(day)}
+                        onMouseLeave={() => setActiveDay(null)}
+                        onFocus={() => setActiveDay(day)}
+                        onBlur={() => setActiveDay(null)}
+                        className="h-[11px] w-[11px] shrink-0 cursor-pointer rounded-full p-0 transition-transform hover:scale-125 focus-visible:scale-125 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[13px] sm:w-[13px]"
                         style={{ backgroundColor: LEVEL_COLORS[day.level] }}
                       />
                     ) : <span key={row} className="h-[11px] w-[11px] sm:h-[13px] sm:w-[13px]" />)}
@@ -114,7 +120,7 @@ export default function GithubActivity() {
           )}
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#9eb4ca] sm:text-sm">
-            <span>Hover a dot for details ;)</span>
+            <span aria-live="polite">{activeDay ? `${activeDay.date}: ${activeDay.count === null ? `activity level ${activeDay.level}` : `${activeDay.count} contribution${activeDay.count === 1 ? "" : "s"}`}` : "Hover or focus a dot for details ;)"}</span>
             <div className="flex items-center gap-2"><span>Less</span>{LEVEL_COLORS.map((color) => <span key={color} className="h-3 w-3 rounded-full sm:h-4 sm:w-4" style={{ backgroundColor: color }} />)}<span>More</span></div>
           </div>
         </div>
