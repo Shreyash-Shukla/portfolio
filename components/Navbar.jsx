@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, XIcon, LeetCodeIcon } from "@/components/SocialIcons";
 
@@ -78,7 +77,20 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             className="rounded-full p-1 transition-transform hover:scale-110"
           >
-            <Image src="/batman.png" alt="" width={36} height={36} className="h-7 w-7 object-contain invert sm:h-8 sm:w-8" />
+            <span
+              aria-hidden="true"
+              className={`block h-7 w-7 transition-colors sm:h-8 sm:w-8 ${isDarkMode ? "bg-white" : "bg-[#f6d365]"}`}
+              style={{
+                maskImage: "url('/batman.png')",
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+                WebkitMaskImage: "url('/batman.png')",
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+              }}
+            />
           </button>
         </div>
       </div>
