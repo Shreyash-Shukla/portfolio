@@ -34,13 +34,13 @@ export default function ResumeModal({ isOpen, onClose }) {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="flex max-h-[94vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border-4 border-black bg-white text-gray-900 sm:max-h-[90vh] sm:rounded-3xl dark:border-[#8B9CFF] dark:bg-[#1A1A1A] dark:text-white brutal-shadow-lg">
+      <div role="dialog" aria-modal="true" aria-labelledby="resume-title" className="dark flex max-h-[94vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border-[3px] border-white bg-[#0d0d0d] text-white shadow-[8px_8px_0_0_#fff] sm:max-h-[90vh]">
         
         {/* Modal Header */}
-        <div className="flex items-center justify-between gap-2 border-b-4 border-black bg-gray-100 p-4 sm:p-6 dark:border-gray-800 dark:bg-[#0D0D0D]">
+        <div className="flex items-center justify-between gap-2 border-b border-white/25 bg-[#151515] p-4 sm:p-6">
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <div className="h-4 w-1.5 shrink-0 rounded-full bg-indigo-500 animate-pulse sm:w-4"></div>
-            <h2 className="truncate font-mono text-base font-black tracking-wider text-gray-900 sm:text-xl dark:text-white">
+            <div className="h-4 w-1.5 shrink-0 rounded-full bg-[#39d353] animate-pulse sm:w-4"></div>
+            <h2 id="resume-title" className="truncate font-mont text-base font-black tracking-wider text-white sm:text-xl">
               <span className="sm:hidden">RESUME</span>
               <span className="hidden sm:inline">SHREYASH SHUKLA — RESUME</span>
             </h2>
@@ -49,7 +49,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <button
               onClick={handleDownload}
-              className="flex items-center gap-1.5 rounded-lg border-2 border-black bg-indigo-400 px-3 py-1.5 font-mono text-xs font-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none sm:px-4 dark:bg-[#8B9CFF]"
+              className="flex items-center gap-1.5 rounded-md bg-[#39d353] px-3 py-2 font-mono text-xs font-black text-black transition-colors hover:bg-[#67ee7d] sm:px-4"
             >
               <Download className="w-4 h-4" />
               <span className="hidden min-[390px]:inline">DOWNLOAD</span>
@@ -57,7 +57,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
             <button
               onClick={onClose}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-black font-bold text-white transition-opacity hover:opacity-80 dark:bg-white dark:text-black"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-white/50 bg-transparent font-bold text-white transition-colors hover:bg-white hover:text-black"
               aria-label="Close resume"
             >
               <X className="w-5 h-5" />
@@ -71,16 +71,16 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Header Contact */}
           <div className="border-b-2 border-gray-200 dark:border-gray-800 pb-6">
             <h1 className="mb-1 font-mont text-2xl font-black text-gray-900 sm:text-3xl dark:text-white">SHREYASH SHUKLA</h1>
-            <p className="mb-3 font-mono text-xs font-bold uppercase tracking-wider text-indigo-700 dark:text-[#8B9CFF]">
+            <p className="mb-3 font-mono text-xs font-bold uppercase tracking-wider text-[#39d353] dark:text-[#39d353]">
               SWE Intern @ Quicko · B.Tech CSE @ PDEU · CGPA: 9.72 / 10
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-700 dark:text-gray-300 text-xs font-mono">
               <span>📍 Gandhinagar, Gujarat</span>
               <span>📞 +91 76983 35369</span>
-              <a href="mailto:shreyash.shukla.dev@gmail.com" className="transition-colors hover:text-indigo-600 dark:hover:text-[#8B9CFF]">✉ shreyash.shukla.dev@gmail.com</a>
-              <a href="https://linkedin.com/in/shreyash-shukla-6a3b5a309" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-indigo-600 dark:hover:text-[#8B9CFF]">🔗 linkedin.com/in/shreyash-shukla</a>
-              <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-indigo-600 dark:hover:text-[#8B9CFF]">🐙 github.com/Shreyash-Shukla</a>
-              <a href="https://shreyashshukla.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-indigo-600 dark:hover:text-[#8B9CFF]">🌐 shreyashshukla.vercel.app</a>
+              <a href="mailto:shreyash.shukla.dev@gmail.com" className="transition-colors hover:text-[#39d353] dark:hover:text-[#39d353]">✉ shreyash.shukla.dev@gmail.com</a>
+              <a href="https://linkedin.com/in/shreyash-shukla-6a3b5a309" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#39d353] dark:hover:text-[#39d353]">🔗 linkedin.com/in/shreyash-shukla</a>
+              <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#39d353] dark:hover:text-[#39d353]">🐙 github.com/Shreyash-Shukla</a>
+              <a href="https://shreyashshukla.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#39d353] dark:hover:text-[#39d353]">🌐 shreyashshukla.vercel.app</a>
             </div>
           </div>
 
@@ -97,7 +97,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Education */}
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
-              <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-[#8B9CFF]" />
+              <GraduationCap className="w-4 h-4 text-[#39d353] dark:text-[#39d353]" />
               EDUCATION
             </h3>
             <div className="bg-gray-50 dark:bg-[#0D0D0D] p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex justify-between items-start">
@@ -106,7 +106,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <p className="text-xs font-mono text-gray-600 dark:text-gray-400">Gandhinagar, Gujarat · B.Tech in Computer Science and Engineering</p>
               </div>
               <div className="text-right ml-4 flex-shrink-0">
-                <span className="block font-mono text-xs font-bold text-indigo-700 dark:text-[#8B9CFF]">CGPA: 9.72 / 10</span>
+                <span className="block font-mono text-xs font-bold text-[#39d353] dark:text-[#39d353]">CGPA: 9.72 / 10</span>
                 <p className="text-[11px] text-gray-500 font-mono">July 2023 – May 2027</p>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Technical Skills */}
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
-              <Code className="w-4 h-4 text-indigo-600 dark:text-[#8B9CFF]" />
+              <Code className="w-4 h-4 text-[#39d353] dark:text-[#39d353]" />
               TECHNICAL SKILLS
             </h3>
             <div className="space-y-2 font-mono text-xs bg-gray-50 dark:bg-[#0D0D0D] p-4 rounded-xl border border-gray-200 dark:border-gray-800">
@@ -138,25 +138,25 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Experience */}
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
-              <Briefcase className="w-4 h-4 text-indigo-600 dark:text-[#8B9CFF]" />
+              <Briefcase className="w-4 h-4 text-[#39d353] dark:text-[#39d353]" />
               EXPERIENCE
             </h3>
 
-            <div className="space-y-2 border-l-2 border-indigo-500 pl-4 dark:border-[#8B9CFF]">
+            <div className="space-y-2 border-l-2 border-[#39d353] pl-4 dark:border-[#39d353]">
               <div className="flex justify-between items-start flex-wrap gap-2">
                 <div>
                   <h4 className="font-bold text-lg text-gray-900 dark:text-white">Quicko</h4>
                   <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 italic">Software Engineering Intern · Ahmedabad, Gujarat</p>
                 </div>
-                <span className="flex-shrink-0 rounded border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-1 font-mono text-xs font-bold text-indigo-700 dark:text-[#8B9CFF]">May 2026 – June 2026</span>
+                <span className="flex-shrink-0 rounded border border-[#39d353]/30 bg-[#39d353]/10 px-2.5 py-1 font-mono text-xs font-bold text-[#39d353] dark:text-[#39d353]">May 2026 – June 2026</span>
               </div>
               <ul className="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 font-light text-xs sm:text-sm leading-relaxed mt-2">
                 <li>
                   Developed and deployed <strong className="text-gray-900 dark:text-white">four production-grade financial tools</strong> live on Quicko&apos;s platform: a{" "}
-                  <a href="https://quicko.com/tools/verify-pan-details" target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:underline dark:text-[#8B9CFF]">PAN Verification Tool ↗</a>, a{" "}
-                  <a href="https://quicko.com/tools/check-pan-aadhaar-link-status" target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:underline dark:text-[#8B9CFF]">PAN-Aadhaar Link Status Checker ↗</a>, a{" "}
-                  <a href="https://quicko.com/tools/check-tax-payment-status" target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:underline dark:text-[#8B9CFF]">Tax Payment Status Checker ↗</a>, and an{" "}
-                  <a href="https://quicko.com/tools/e-verify-itr" target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:underline dark:text-[#8B9CFF]">e-Verify ITR Tool ↗</a>.
+                  <a href="https://quicko.com/tools/verify-pan-details" target="_blank" rel="noopener noreferrer" className="font-bold text-[#39d353] hover:underline dark:text-[#39d353]">PAN Verification Tool ↗</a>, a{" "}
+                  <a href="https://quicko.com/tools/check-pan-aadhaar-link-status" target="_blank" rel="noopener noreferrer" className="font-bold text-[#39d353] hover:underline dark:text-[#39d353]">PAN-Aadhaar Link Status Checker ↗</a>, a{" "}
+                  <a href="https://quicko.com/tools/check-tax-payment-status" target="_blank" rel="noopener noreferrer" className="font-bold text-[#39d353] hover:underline dark:text-[#39d353]">Tax Payment Status Checker ↗</a>, and an{" "}
+                  <a href="https://quicko.com/tools/e-verify-itr" target="_blank" rel="noopener noreferrer" className="font-bold text-[#39d353] hover:underline dark:text-[#39d353]">e-Verify ITR Tool ↗</a>.
                 </li>
                 <li>
                   Designed cloud-native data workflows on <strong className="text-gray-900 dark:text-white">AWS DynamoDB</strong> and built scalable <strong className="text-gray-900 dark:text-white">serverless APIs</strong> with <strong className="text-gray-900 dark:text-white">TypeScript</strong>, <strong className="text-gray-900 dark:text-white">Node.js</strong>, and <strong className="text-gray-900 dark:text-white">AWS Lambda</strong>, using Middy middleware for validation, error handling, and logging.
@@ -230,7 +230,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                       <h4 className="font-bold text-sm text-gray-900 dark:text-white">{proj.name}</h4>
                       <p className="font-mono text-[10px] text-gray-600 dark:text-gray-400 italic">{proj.tech}</p>
                     </div>
-                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="flex flex-shrink-0 items-center gap-1 font-mono text-[10px] font-bold text-indigo-700 hover:underline dark:text-[#8B9CFF]">
+                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="flex flex-shrink-0 items-center gap-1 font-mono text-[10px] font-bold text-[#39d353] hover:underline dark:text-[#39d353]">
                       GitHub ↗
                     </a>
                   </div>
@@ -245,7 +245,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Achievements & Certifications */}
           <div>
             <h3 className="font-mono text-xs font-black text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-1">
-              <Trophy className="w-4 h-4 text-indigo-600 dark:text-[#8B9CFF]" />
+              <Trophy className="w-4 h-4 text-[#39d353] dark:text-[#39d353]" />
               ACHIEVEMENTS &amp; CERTIFICATIONS
             </h3>
             <ul className="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-light">
@@ -260,11 +260,11 @@ export default function ResumeModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 bg-gray-100 dark:bg-[#0D0D0D] border-t-2 border-black dark:border-gray-800 flex items-center justify-between font-mono text-xs text-gray-700 dark:text-gray-400">
+        <div className="flex items-center justify-between gap-3 border-t border-white/25 bg-[#151515] p-4 font-mono text-xs text-gray-400">
           <span>PRESS ESC OR CLICK OUTSIDE TO CLOSE</span>
           <button
             onClick={handleDownload}
-            className="flex items-center gap-1.5 rounded-lg border border-black bg-indigo-400 px-3 py-1.5 font-mono text-xs font-black text-black transition-opacity hover:opacity-90 dark:bg-[#8B9CFF]"
+            className="flex items-center gap-1.5 rounded-md bg-[#39d353] px-3 py-2 font-mono text-xs font-black text-black transition-colors hover:bg-[#67ee7d]"
           >
             <Download className="w-3 h-3" />
             DOWNLOAD RESUME

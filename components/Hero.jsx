@@ -6,8 +6,8 @@ import dynamic from "next/dynamic";
 const SpaceShooter = dynamic(() => import("./SpaceShooter"), {
   ssr: false,
   loading: () => (
-    <div className="w-full max-w-[540px] aspect-[19/22] rounded-2xl border-2 border-[#8B9CFF]/30 bg-[#070714] flex items-center justify-center">
-      <span className="font-mono text-[#8B9CFF] text-sm animate-pulse">Loading game...</span>
+    <div className="aspect-[19/22] w-full max-w-[540px] rounded-2xl border-2 border-white bg-[#0d0d0d] flex items-center justify-center">
+      <span className="animate-pulse font-mono text-sm text-[#39d353]">Loading game...</span>
     </div>
   ),
 });
@@ -65,14 +65,10 @@ export default function Hero({ onOpenResume }) {
       id="hero"
       className="mx-auto flex min-h-screen max-w-[1440px] items-center px-4 pb-14 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-10 xl:px-12"
     >
-      <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-10 2xl:gap-12">
+      <div className="grid w-full grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-10 2xl:gap-12">
 
         {/* ── Left: Game ── */}
-        <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:items-end">
-          <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-[#39d353]/40 bg-[#39d353]/10 px-3 py-1 font-mono text-[10px] font-bold text-[#176c2d] sm:text-xs dark:text-[#39d353]">
-            <span className="h-2 w-2 rounded-full bg-[#39d353] animate-pulse"></span>
-            MINI GAME — BUG BLASTER
-          </div>
+        <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:-mt-4 xl:items-end">
           <SpaceShooter />
           <p className="font-mono text-xs text-gray-700 dark:text-gray-400 text-center font-medium">
             A developer who ships code AND squashes bugs 🐛

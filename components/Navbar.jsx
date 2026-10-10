@@ -78,7 +78,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
             aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             className="rounded-full p-1 transition-transform hover:scale-110"
           >
-            <Image src="/batman.png" alt="" width={36} height={36} className={`h-7 w-7 object-contain sm:h-8 sm:w-8 ${isDarkMode ? "invert" : "grayscale"}`} />
+            <Image src="/batman.png" alt="" width={36} height={36} className="h-7 w-7 object-contain invert sm:h-8 sm:w-8" />
           </button>
         </div>
       </div>
