@@ -5,20 +5,26 @@ function attribute(tag, name) {
   return tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1] ?? null;
 }
 
-function parseCalendar(markup, year) {
+export function parseCalendar(markup, year) {
   const days = new Map();
   // GitHub has served both SVG rectangles and HTML table cells for this calendar.
   const cells = markup.match(/<(?:td|rect)\b[^>]*\bdata-date="\d{4}-\d{2}-\d{2}"[^>]*>/g) ?? [];
+  const tooltips = new Map(
+    [...markup.matchAll(/<tool-tip\b[^>]*\bfor="([^"]+)"[^>]*>([^<]*)<\/tool-tip>/g)]
+      .map((match) => [match[1], match[2]])
+  );
 
   for (const cell of cells) {
     const date = attribute(cell, "data-date");
     if (!date?.startsWith(`${year}-`)) continue;
     const level = Number(attribute(cell, "data-level") ?? 0);
+    const tooltip = tooltips.get(attribute(cell, "id")) ?? "";
+    const countMatch = tooltip.match(/([\d,]+)\s+contributions?/i);
     const count = attribute(cell, "data-count");
     days.set(date, {
       date,
       level: Math.max(0, Math.min(4, Number.isFinite(level) ? level : 0)),
-      count: count === null ? null : Number(count),
+      count: count !== null ? Number(count) : /^No contributions/i.test(tooltip) ? 0 : countMatch ? Number(countMatch[1].replaceAll(",", "")) : null,
     });
   }
 
