@@ -49,7 +49,7 @@ export default function GithubActivity() {
         <p className="section-copy">Current profile stats and contributions, refreshed from GitHub.</p>
       </div>
 
-      <div className="rounded-[28px] border-[3px] border-white bg-[#0d0d0d] p-5 text-white shadow-[8px_8px_0_0_#ffffff] sm:p-9 lg:p-10">
+      <div className="dark-surface rounded-[28px] border-[3px] border-white bg-[#0d0d0d] p-5 text-white shadow-[8px_8px_0_0_#ffffff] sm:p-9 lg:p-10">
         <div className="flex flex-wrap items-center gap-5">
           {profile?.avatarUrl ? (
             <Image src={profile.avatarUrl} alt="Shreyash Shukla's GitHub avatar" width={72} height={72} className="h-[72px] w-[72px] rounded-full border-2 border-white object-cover" />

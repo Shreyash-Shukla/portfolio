@@ -37,7 +37,7 @@ export default function TechStack() {
         {competencies.map((item) => {
           const Icon = item.icon;
           return (
-            <article key={item.title} className="rounded-2xl border-2 border-white bg-[#101010] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8">
+            <article key={item.title} className="dark-surface rounded-2xl border-2 border-white bg-[#101010] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8">
               <div className="mb-6 flex items-start justify-between">
                 <Icon className="h-8 w-8" style={{ color: item.accent }} aria-hidden="true" />
                 <span className="h-3 w-3 rounded-full" style={{ backgroundColor: item.accent }} />

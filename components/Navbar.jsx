@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
+import { GitHubIcon, LinkedInIcon, XIcon, LeetCodeIcon } from "@/components/SocialIcons";
 
 const links = [
   { label: "Home", href: "#hero", id: "hero" },
@@ -59,12 +59,18 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
           <span>Menu</span>
         </button>
 
-        <div className="flex items-center gap-4 sm:gap-5">
+        <div className="flex items-center gap-2.5 sm:gap-5">
           <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-[#aab4c0] transition-colors hover:text-white">
             <GitHubIcon className="h-5 w-5" />
           </a>
           <a href="https://www.linkedin.com/in/shreyash-shukla-6a3b5a309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-[#0a66c2] transition-colors hover:text-[#64a8ed]">
             <LinkedInIcon className="h-5 w-5" />
+          </a>
+          <a href="https://x.com/Shreyash_twt" target="_blank" rel="noopener noreferrer" aria-label="X profile" className="text-[#d1d5db] transition-colors hover:text-white">
+            <XIcon className="h-5 w-5" />
+          </a>
+          <a href="https://leetcode.com/u/shreyash_shukla/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="text-[#f5a623] transition-colors hover:text-[#ffcc69]">
+            <LeetCodeIcon className="h-5 w-5" />
           </a>
           <button
             type="button"

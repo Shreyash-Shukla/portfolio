@@ -60,7 +60,7 @@ export default function Projects() {
 
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((project, index) => (
-          <article key={project.title} className={`relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-white bg-[#111] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8 ${index === projects.length - 1 ? "md:col-span-2" : ""}`}>
+          <article key={project.title} className={`dark-surface relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-white bg-[#111] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8 ${index === projects.length - 1 ? "md:col-span-2" : ""}`}>
             <div>
               <div className="mb-5 flex items-center justify-between gap-3">
                 <span className="font-mono text-xs font-bold tracking-widest text-[#9eb4ca]">PROJECT {String(index + 1).padStart(2, "0")}</span>
@@ -84,7 +84,7 @@ export default function Projects() {
       </div>
 
       <div className="mt-12 text-center">
-        <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md border border-white px-6 py-3 font-mono text-xs font-black text-white transition-colors hover:bg-white hover:text-black sm:text-sm">
+        <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md border border-gray-900 px-6 py-3 font-mono text-xs font-black text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black sm:text-sm">
           EXPLORE ALL PROJECTS <ArrowRight size={18} />
         </a>
       </div>

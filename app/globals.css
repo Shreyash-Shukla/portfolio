@@ -90,7 +90,10 @@ body {
 }
 
 :root:not(.dark) .section-title { color: #111; }
+:root:not(.dark) .section-title span,
+:root:not(.dark) .section-eyebrow { color: #167c38; }
 :root:not(.dark) .section-copy { color: #444; }
+:root:not(.dark) .dark-surface { box-shadow: 6px 6px 0 #1b1b1b; }
 
 @media (min-width: 640px) {
   .site-section { padding: 5rem 1.5rem; }
@@ -190,13 +193,6 @@ textarea::placeholder {
   color: #9ca3af;
 }
 
-/* Make sure all body text stays readable in light mode */
-:root:not(.dark) .text-gray-300,
-:root:not(.dark) .text-gray-400,
-:root:not(.dark) .text-gray-500 {
-  color: #4b5563 !important;
-}
-
 /* Contact right panel — always dark bg so text always white */
 .contact-info-panel {
   background: #111827;
@@ -232,9 +228,4 @@ section[id] {
 /* Hackathon cards: make description text darker in light mode */
 :root:not(.dark) .achievement-desc {
   color: #1f2937;
-}
-
-/* Footer text */
-:root:not(.dark) footer {
-  background: #ffffff;
 }

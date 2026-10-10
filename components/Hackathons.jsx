@@ -70,7 +70,7 @@ export default function Hackathons() {
         <p className="section-copy">Two team wins in 2025, from first runner-up at PDEU in March to the grand prize at Nirma in April.</p>
       </div>
 
-      <div className="mx-auto mb-8 grid max-w-2xl grid-cols-2 gap-5 border-t-2 border-white/80 sm:mb-11">
+      <div className="mx-auto mb-8 grid max-w-2xl grid-cols-2 gap-5 border-t-2 border-gray-700 dark:border-white/80 sm:mb-11">
         {wins.map((item, index) => (
           <button
             key={item.name}
@@ -80,12 +80,12 @@ export default function Hackathons() {
             className="-mt-3 flex flex-col items-center gap-2 font-mono text-[10px] font-bold tracking-wider sm:text-xs"
           >
             <span className={`flex h-7 w-7 items-center justify-center border-2 font-black ${selected === index ? "border-[#39d353] bg-[#39d353] text-black" : "border-white bg-[#1b1b1b] text-white"}`}>0{index + 1}</span>
-            <span className={selected === index ? "text-[#39d353]" : "text-gray-400"}>{item.date}</span>
+            <span className={selected === index ? "text-[#167c38] dark:text-[#39d353]" : "text-gray-600 dark:text-gray-400"}>{item.date}</span>
           </button>
         ))}
       </div>
 
-      <article key={win.name} className="overflow-hidden rounded-2xl border-[3px] border-white bg-[#0e0e0e] text-white shadow-[8px_8px_0_0_#fff]">
+      <article key={win.name} className="dark-surface overflow-hidden rounded-2xl border-[3px] border-white bg-[#0e0e0e] text-white shadow-[8px_8px_0_0_#fff]">
         <div className={`flex flex-wrap items-end justify-between gap-3 px-5 py-5 text-black sm:px-7 ${win.tone}`}>
           <div>
             <span className="inline-block border-2 border-black bg-white px-2 py-1 font-mono text-[10px] font-black tracking-wider">{win.result}</span>
@@ -125,7 +125,7 @@ export default function Hackathons() {
       </article>
 
       <div className="mt-16">
-        <h3 className="mb-5 font-mont text-xl font-black text-white sm:text-2xl">More milestones</h3>
+        <h3 className="mb-5 font-mont text-xl font-black text-gray-900 dark:text-white sm:text-2xl">More milestones</h3>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {otherAchievements.map((item) => {
             const Icon = item.icon;

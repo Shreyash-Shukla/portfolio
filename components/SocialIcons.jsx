@@ -15,3 +15,19 @@ export function LinkedInIcon({ size = 20, className = "" }) {
     </svg>
   );
 }
+
+export function XIcon({ size = 20, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M3 3l18 18M21 3 3 21" />
+    </svg>
+  );
+}
+
+export function LeetCodeIcon({ size = 20, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="m15 3-9 9 9 9M10 12h11" />
+    </svg>
+  );
+}

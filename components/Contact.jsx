@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle2, Mail, MapPin, Phone, Send } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
+import { GitHubIcon, LinkedInIcon, XIcon, LeetCodeIcon } from "@/components/SocialIcons";
 import confetti from "canvas-confetti";
 
 export default function Contact() {
@@ -49,7 +49,7 @@ export default function Contact() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr]">
-        <div className="rounded-2xl border-2 border-white bg-[#101010] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8">
+        <div className="dark-surface rounded-2xl border-2 border-white bg-[#101010] p-6 text-white shadow-[6px_6px_0_0_#fff] sm:p-8">
           {submitted && <p role="status" className="mb-5 flex items-center gap-2 rounded-md border border-[#39d353] bg-[#39d353]/10 p-3 font-mono text-xs text-[#39d353]"><CheckCircle2 size={18} /> Message sent. I&apos;ll reply by email.</p>}
           {error && <p role="alert" className="mb-5 rounded-md border border-red-400 bg-red-400/10 p-3 font-mono text-xs text-red-300">{error}</p>}
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -83,6 +83,8 @@ export default function Contact() {
             <div className="flex gap-3">
               <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="rounded-full border border-white/30 p-3 hover:border-[#39d353] hover:text-[#39d353]"><GitHubIcon size={20} /></a>
               <a href="https://www.linkedin.com/in/shreyash-shukla-6a3b5a309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-full border border-white/30 p-3 hover:border-[#39d353] hover:text-[#39d353]"><LinkedInIcon size={20} /></a>
+              <a href="https://x.com/Shreyash_twt" target="_blank" rel="noopener noreferrer" aria-label="X" className="rounded-full border border-white/30 p-3 hover:border-[#39d353] hover:text-[#39d353]"><XIcon size={20} /></a>
+              <a href="https://leetcode.com/u/shreyash_shukla/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="rounded-full border border-white/30 p-3 hover:border-[#39d353] hover:text-[#39d353]"><LeetCodeIcon size={20} /></a>
             </div>
           </div>
         </aside>
