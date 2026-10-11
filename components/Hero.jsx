@@ -1,16 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-const SpaceShooter = dynamic(() => import("./SpaceShooter"), {
-  ssr: false,
-  loading: () => (
-    <div className="aspect-[19/22] w-full max-w-[540px] rounded-2xl border-2 border-white bg-[#0d0d0d] flex items-center justify-center">
-      <span className="animate-pulse font-mono text-sm text-[#39d353]">Loading game...</span>
-    </div>
-  ),
-});
+import PortfolioTerminal from "./PortfolioTerminal";
 
 const ROLES = [
   "Full Stack Developer",
@@ -67,11 +58,11 @@ export default function Hero({ onOpenResume }) {
     >
       <div className="grid w-full grid-cols-1 items-start gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-10 2xl:gap-12">
 
-        {/* ── Left: Game ── */}
+        {/* ── Left: Interactive life log and game ── */}
         <div className="order-2 flex min-w-0 flex-col items-center gap-2.5 xl:-mt-4 xl:items-end">
-          <SpaceShooter />
+          <PortfolioTerminal />
           <p className="font-mono text-xs text-gray-700 dark:text-gray-400 text-center font-medium">
-            A developer who ships code AND squashes bugs 🐛
+            Explore my journey. Type <span className="font-bold text-[#167c38] dark:text-[#39d353]">play</span> when you need a break 🐛
           </p>
         </div>
 

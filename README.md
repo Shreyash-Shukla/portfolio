@@ -2,7 +2,7 @@
 
 I'm a computer science student at Pandit Deendayal Energy University in Gandhinagar. I build full-stack products, work with serverless systems, and enjoy solving problems.
 
-This portfolio brings together my projects, hackathon wins, GitHub activity, and a small bug-squashing game.
+This portfolio brings together my projects, hackathon wins, GitHub activity, and an interactive life log. The terminal lets visitors explore real milestones and exam results, then launch a small bug-squashing game with `play`.
 
 ## Highlights
 

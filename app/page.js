@@ -49,7 +49,7 @@ export default function Home() {
       {/* Footer */}
       <Footer />
 
-      {/* Easter Eggs: cursor trail, Konami code, right-click menu */}
+      {/* Konami code easter egg */}
       <EasterEgg />
 
       {/* Interactive Resume Modal */}

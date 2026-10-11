@@ -58,37 +58,37 @@ export default function Navbar({ isDarkMode, setIsDarkMode, onOpenResume }) {
           <span>Menu</span>
         </button>
 
-        <div className="flex items-center gap-2.5 sm:gap-5">
+        <div className="flex items-center gap-2 sm:gap-5">
           <a href="https://github.com/Shreyash-Shukla" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-[#aab4c0] transition-colors hover:text-white">
-            <GitHubIcon className="h-5 w-5" />
+            <GitHubIcon className="h-7 w-7" />
           </a>
           <a href="https://www.linkedin.com/in/shreyash-shukla-6a3b5a309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-[#0a66c2] transition-colors hover:text-[#64a8ed]">
-            <LinkedInIcon className="h-5 w-5" />
+            <LinkedInIcon className="h-7 w-7" />
           </a>
           <a href="https://x.com/Shreyash_twt" target="_blank" rel="noopener noreferrer" aria-label="X profile" className="text-[#d1d5db] transition-colors hover:text-white">
-            <XIcon className="h-5 w-5" />
+            <XIcon className="h-7 w-7" />
           </a>
           <a href="https://leetcode.com/u/shreyash_shukla/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="text-[#f5a623] transition-colors hover:text-[#ffcc69]">
-            <LeetCodeIcon className="h-5 w-5" />
+            <LeetCodeIcon className="h-7 w-7" />
           </a>
           <button
             type="button"
             onClick={() => setIsDarkMode(!isDarkMode)}
             aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-            className="rounded-full p-1 transition-transform hover:scale-110"
+            className="inline-flex h-7 w-10 items-center justify-center transition-transform hover:scale-110"
           >
             <span
               aria-hidden="true"
-              className={`block h-7 w-7 transition-colors sm:h-8 sm:w-8 ${isDarkMode ? "bg-white" : "bg-[#f6d365]"}`}
+              className={`block h-7 w-10 transition-colors ${isDarkMode ? "bg-white" : "bg-[#f6d365]"}`}
               style={{
                 maskImage: "url('/batman.png')",
                 maskPosition: "center",
                 maskRepeat: "no-repeat",
-                maskSize: "contain",
+                maskSize: "44px 44px",
                 WebkitMaskImage: "url('/batman.png')",
                 WebkitMaskPosition: "center",
                 WebkitMaskRepeat: "no-repeat",
-                WebkitMaskSize: "contain",
+                WebkitMaskSize: "44px 44px",
               }}
             />
           </button>

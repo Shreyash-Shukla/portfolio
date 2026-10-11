@@ -1,21 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, XIcon, LeetCodeIcon } from "@/components/SocialIcons";
 
 export default function Footer() {
+  const footerRef = useRef(null);
   const [showTop, setShowTop] = useState(false);
+  const [buttonBottom, setButtonBottom] = useState(24);
 
   useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 600);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const gap = 24;
+    const buttonHeight = 56;
+    const updatePosition = () => {
+      const footerTop = footerRef.current?.getBoundingClientRect().top ?? window.innerHeight;
+      setShowTop(window.scrollY > 600 && footerTop > buttonHeight + gap);
+      setButtonBottom(Math.max(gap, window.innerHeight - footerTop + gap));
+    };
+
+    updatePosition();
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    window.addEventListener("resize", updatePosition);
+    return () => {
+      window.removeEventListener("scroll", updatePosition);
+      window.removeEventListener("resize", updatePosition);
+    };
   }, []);
 
   return (
-    <footer className="border-t border-white/20 bg-[#111] px-4 py-10 text-white sm:px-6">
+    <footer ref={footerRef} className="border-t border-white/20 bg-[#111] px-4 py-10 text-white sm:px-6">
       <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-5 text-center md:flex-row md:text-left">
         <div>
           <p className="font-mont text-lg font-black">Shreyash Shukla<span className="text-[#39d353]">.</span></p>
@@ -29,7 +42,7 @@ export default function Footer() {
           <a href="https://leetcode.com/u/shreyash_shukla/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="text-gray-300 hover:text-[#39d353]"><LeetCodeIcon size={19} /></a>
         </div>
       </div>
-      {showTop && <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-black bg-[#39d353] text-black shadow-[5px_5px_0_0_#111] transition-transform hover:-translate-y-1"><ArrowUp size={24} /></button>}
+      {showTop && <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="fixed right-6 z-40 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-black bg-[#39d353] text-black shadow-[5px_5px_0_0_#111] transition-transform hover:-translate-y-1" style={{ bottom: buttonBottom }}><ArrowUp size={24} /></button>}
     </footer>
   );
 }

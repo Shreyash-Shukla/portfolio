@@ -207,39 +207,7 @@ function drawBullets(ctx, bullets, isEnemy = false) {
   });
 }
 
-function drawHUD(ctx, score, health, wave, isBossWave) {
-  // Top bar
-  ctx.fillStyle = "rgba(0,0,0,0.6)";
-  ctx.fillRect(0, 0, CANVAS_W, 36);
-
-  // Score
-  ctx.fillStyle = "#39d353";
-  ctx.font = "bold 11px monospace";
-  ctx.textAlign = "left";
-  ctx.fillText(`SCORE: ${score}`, 12, 22);
-
-  // Wave
-  ctx.fillStyle = isBossWave ? "#FF4444" : "#FFCC00";
-  ctx.textAlign = "center";
-  ctx.fillText(isBossWave ? "⚠ BOSS WAVE ⚠" : `WAVE ${wave}`, CANVAS_W / 2, 22);
-
-  // Health bar
-  ctx.fillStyle = "#555";
-  ctx.fillRect(CANVAS_W - 112, 10, 100, 14);
-  const hpColor =
-    health > 60 ? "#39d353" : health > 30 ? "#FFCC00" : "#FF4444";
-  ctx.fillStyle = hpColor;
-  ctx.fillRect(CANVAS_W - 112, 10, health, 14);
-  ctx.strokeStyle = "#FFFFFF";
-  ctx.lineWidth = 1;
-  ctx.strokeRect(CANVAS_W - 112, 10, 100, 14);
-  ctx.fillStyle = "#fff";
-  ctx.font = "bold 9px monospace";
-  ctx.textAlign = "center";
-  ctx.fillText("HP", CANVAS_W - 62, 21);
-}
-
-export default function SpaceShooter() {
+export default function SpaceShooter({ autoStart = false, paused = false, onScoreChange, onCommand }) {
   const canvasRef = useRef(null);
   const stateRef = useRef({
     player: { x: CANVAS_W / 2 - PLAYER_W / 2, y: CANVAS_H - PLAYER_H - 20, vx: 0 },
@@ -267,10 +235,11 @@ export default function SpaceShooter() {
     mouseX: null,
   });
 
-  const [gamePhase, setGamePhase] = useState("idle"); // idle | playing | gameover | win
-  const [displayScore, setDisplayScore] = useState(0);
+  const [gamePhase, setGamePhase] = useState(autoStart ? "playing" : "idle"); // idle | playing | gameover | win
+  const [displayHud, setDisplayHud] = useState({ score: 0, health: 100, wave: 1, isBossWave: false });
   const rafRef = useRef(null);
   const gameLoopRef = useRef(null);
+  const pausedRef = useRef(paused);
 
   useEffect(() => {
     stateRef.current.stars = Array.from({ length: 80 }, () => ({
@@ -328,6 +297,7 @@ export default function SpaceShooter() {
     a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
 
   const gameLoop = useCallback(() => {
+    if (pausedRef.current) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -539,12 +509,15 @@ export default function SpaceShooter() {
     drawBoss(ctx, s.boss);
     drawPlayer(ctx, s.player.x, s.player.y, s.flashTimer > 0);
     drawParticles(ctx, s.particles);
-    drawHUD(ctx, s.score, s.health, s.wave, s.isBossWave);
+    setDisplayHud((current) =>
+      current.score === s.score && current.health === Math.max(0, s.health) && current.wave === s.wave && current.isBossWave === s.isBossWave
+        ? current
+        : { score: s.score, health: Math.max(0, s.health), wave: s.wave, isBossWave: s.isBossWave }
+    );
 
     // Win condition
     if (s.wave > 6 && !s.boss) {
       s.win = true;
-      setDisplayScore(s.score);
       setGamePhase("win");
       return;
     }
@@ -553,12 +526,10 @@ export default function SpaceShooter() {
     if (s.health <= 0) {
       s.health = 0;
       s.gameOver = true;
-      setDisplayScore(s.score);
       setGamePhase("gameover");
       return;
     }
 
-    setDisplayScore(s.score);
     rafRef.current = requestAnimationFrame(() => gameLoopRef.current());
   }, [spawnEnemy, spawnBoss, addParticles]);
 
@@ -567,6 +538,7 @@ export default function SpaceShooter() {
   }, [gameLoop]);
 
   const startGame = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     const s = stateRef.current;
     s.player = { x: CANVAS_W / 2 - PLAYER_W / 2, y: CANVAS_H - PLAYER_H - 20, vx: 0 };
     s.bullets = [];
@@ -587,14 +559,28 @@ export default function SpaceShooter() {
     s.flashTimer = 0;
     s.gameOver = false;
     s.win = false;
-    setDisplayScore(0);
+    setDisplayHud({ score: 0, health: 100, wave: 1, isBossWave: false });
     setGamePhase("playing");
     rafRef.current = requestAnimationFrame(gameLoop);
   }, [gameLoop]);
 
+  useEffect(() => {
+    onScoreChange?.(displayHud.score);
+  }, [displayHud.score, onScoreChange]);
+
+  useEffect(() => {
+    pausedRef.current = paused;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = null;
+    if (paused) stateRef.current.keys = {};
+    else if (gamePhase === "playing" && !stateRef.current.gameOver && !stateRef.current.win) {
+      rafRef.current = requestAnimationFrame(gameLoop);
+    }
+  }, [paused, gamePhase, gameLoop]);
+
   // Input handlers
   useEffect(() => {
-    if (gamePhase !== "playing") return;
+    if (gamePhase !== "playing" || paused) return;
     const s = stateRef.current;
 
     const onKey = (e) => { s.keys[e.key] = e.type === "keydown"; };
@@ -632,14 +618,14 @@ export default function SpaceShooter() {
         canvas.removeEventListener("touchmove", onTouch);
       }
     };
-  }, [gamePhase]);
+  }, [gamePhase, paused]);
 
   // Pause on visibility change
   useEffect(() => {
     const onVisChange = () => {
       if (document.hidden && rafRef.current) {
         cancelAnimationFrame(rafRef.current);
-      } else if (!document.hidden && gamePhase === "playing" && !stateRef.current.gameOver) {
+      } else if (!document.hidden && !pausedRef.current && gamePhase === "playing" && !stateRef.current.gameOver) {
         rafRef.current = requestAnimationFrame(gameLoop);
       }
     };
@@ -655,6 +641,15 @@ export default function SpaceShooter() {
   return (
     <div className="flex w-full max-w-[540px] select-none flex-col items-center gap-2">
       <div className="dark-surface relative w-full overflow-hidden rounded-2xl border-2 border-white bg-[#0d0d0d] shadow-[6px_6px_0_0_#fff]">
+        <div className="relative z-10 grid grid-cols-[auto_auto_minmax(48px,1fr)_auto] items-center gap-1.5 border-b border-white/20 bg-black/80 px-2 py-2 font-mono text-[9px] font-bold sm:gap-3 sm:px-3 sm:text-[11px]">
+          <span className="whitespace-nowrap text-[#39d353]">SCORE: {displayHud.score}</span>
+          <span className={`whitespace-nowrap ${displayHud.isBossWave ? "text-[#FF4444]" : "text-[#FFCC00]"}`}>{displayHud.isBossWave ? "BOSS WAVE" : `WAVE ${displayHud.wave}`}</span>
+          <div role="meter" aria-label="Health" aria-valuemin={0} aria-valuemax={100} aria-valuenow={displayHud.health} className="relative h-4 min-w-0 border border-white bg-[#555]">
+            <div className={`h-full ${displayHud.health > 60 ? "bg-[#39d353]" : displayHud.health > 30 ? "bg-[#FFCC00]" : "bg-[#FF4444]"}`} style={{ width: `${displayHud.health}%` }} />
+            <span className="absolute inset-0 flex items-center justify-center text-[8px] text-white [text-shadow:0_1px_2px_#000]">HP</span>
+          </div>
+          {onCommand && <button type="button" onClick={onCommand} aria-label="Open game command prompt" className="whitespace-nowrap rounded border border-[#39d353] px-1.5 py-1 text-[#39d353] hover:bg-[#173b22] sm:px-2">&gt;_ COMMAND</button>}
+        </div>
         <canvas
           ref={canvasRef}
           width={CANVAS_W}
@@ -689,7 +684,7 @@ export default function SpaceShooter() {
             <div className="text-center">
               <span className="font-mono text-[10px] font-black tracking-[0.2em] text-[#39d353]">BUILD FAILED</span>
               <h3 className="mt-3 font-mont text-3xl font-black">GAME OVER</h3>
-              <p className="mt-3 font-mono text-lg font-bold text-[#39d353]">SCORE: {displayScore}</p>
+              <p className="mt-3 font-mono text-lg font-bold text-[#39d353]">SCORE: {displayHud.score}</p>
               <p className="mt-2 text-sm text-gray-300">The bugs won this round. Run it back.</p>
             </div>
             <button
@@ -708,7 +703,7 @@ export default function SpaceShooter() {
             <div className="text-center">
               <span className="font-mono text-[10px] font-black tracking-[0.2em] text-[#39d353]">BUILD PASSED</span>
               <h3 className="mt-3 font-mont text-3xl font-black">YOU WIN!</h3>
-              <p className="mt-3 font-mono text-lg font-bold text-[#39d353]">SCORE: {displayScore}</p>
+              <p className="mt-3 font-mono text-lg font-bold text-[#39d353]">SCORE: {displayHud.score}</p>
               <p className="mt-2 text-sm text-gray-300">All bugs squashed. Ship it.</p>
             </div>
             <button
