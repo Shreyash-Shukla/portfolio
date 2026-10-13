@@ -4,6 +4,10 @@ I'm a computer science student at Pandit Deendayal Energy University in Gandhina
 
 This portfolio brings together my projects, hackathon wins, GitHub activity, and an interactive life log. The terminal lets visitors explore real milestones and exam results, then launch a small bug-squashing game with `play`.
 
+## Add a blog post
+
+Add an object to the `blogs` array in `lib/blogs.js` with `title`, `excerpt`, `date` (YYYY-MM-DD), and `url`. Add optional `tags` as an array of strings. The Blogs section lists posts in the same order as the array, so put the newest first.
+
 ## Highlights
 
 - **FraudShield** — Grand prize winner at HackNUthon 6.0, Nirma University.

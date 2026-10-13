@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Hackathons from "@/components/Hackathons";
 import Projects from "@/components/Projects";
+import Blogs from "@/components/Blogs";
 import GithubActivity from "@/components/GithubActivity";
 import Pipeline from "@/components/Pipeline";
 import Contact from "@/components/Contact";
@@ -42,6 +43,7 @@ export default function Home() {
         <TechStack />
         <Hackathons />
         <Projects />
+        <Blogs />
         <Pipeline />
         <Contact />
       </main>
