@@ -1,6 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://shreyash.shukla.vercel.app"),
   title: "Shreyash Shukla | Software Engineer & Computer Science Student in Gandhinagar",
   description:
     "Shreyash Shukla - Computer Science & Engineering student at PDEU, Gandhinagar, Gujarat. Software Engineering Intern at Quicko specializing in Angular, React, Next.js, Node.js, and AWS Serverless architecture.",
@@ -14,22 +15,29 @@ export const metadata = {
     "AWS Serverless Engineer",
     "Hackathon Winner Gujarat",
   ],
-  authors: [{ name: "Shreyash Shukla", url: "https://shreyash-shukla.vercel.app" }],
+  authors: [{ name: "Shreyash Shukla", url: "https://shreyash.shukla.vercel.app" }],
   creator: "Shreyash Shukla",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Shreyash Shukla | Software Engineer & CSE Student",
     description:
       "Full Stack Web Developer & Software Intern at Quicko. View projects, hackathon achievements, and experience.",
-    url: "https://shreyash-shukla.vercel.app/",
+    url: "https://shreyash.shukla.vercel.app/",
     siteName: "Shreyash Shukla Portfolio",
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "/shreyash_emblem.png",
-        width: 500,
-        height: 500,
-        alt: "Shreyash Shukla - Full Stack Software Developer",
+        url: "/portfolio-preview-wide.png",
+        width: 1200,
+        height: 630,
+        alt: "Shreyash Shukla — Software Engineer",
+      },
+      {
+        url: "/portfolio-preview-square.png",
+        width: 1200,
+        height: 1200,
+        alt: "Shreyash Shukla — Software Engineer",
       },
     ],
   },
@@ -38,7 +46,7 @@ export const metadata = {
     title: "Shreyash Shukla | Software Engineer in Gandhinagar",
     description:
       "Software Engineering Intern at Quicko & PDEU CSE student. Angular, React, Next.js, and AWS Lambda serverless tools.",
-    images: ["/shreyash_emblem.png"],
+    images: ["/portfolio-preview-wide.png"],
   },
 };
 
@@ -47,8 +55,8 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Shreyash Shukla",
-    url: "https://shreyash-shukla.vercel.app",
-    image: "/shreyash_emblem.png",
+    url: "https://shreyash.shukla.vercel.app",
+    image: "https://shreyash.shukla.vercel.app/portfolio-preview-square.png",
     jobTitle: "Software Engineering Intern",
     worksFor: {
       "@type": "Organization",

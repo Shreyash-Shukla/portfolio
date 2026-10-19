@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#F5F4F0"/>
+  <rect x="72" y="72" width="1056" height="1056" fill="none" stroke="#D4D4CE" stroke-width="2"/>
+  <path d="M72 72h176" stroke="#207A4B" stroke-width="10"/>
+  <text x="104" y="153" fill="#202320" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="2">SS</text>
+  <text x="1096" y="153" text-anchor="end" fill="#4E5750" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="5">PORTFOLIO</text>
+  <text x="103" y="510" fill="#151916" font-family="Arial, sans-serif" font-size="116" font-weight="700" letter-spacing="-5">SHREYASH</text>
+  <text x="103" y="638" fill="#151916" font-family="Arial, sans-serif" font-size="148" font-weight="700" letter-spacing="-7">SHUKLA</text>
+  <rect x="105" y="708" width="72" height="8" fill="#207A4B"/>
+  <text x="103" y="783" fill="#3C4540" font-family="Arial, sans-serif" font-size="42" font-weight="400" letter-spacing="3">SOFTWARE ENGINEER</text>
+  <path d="M104 989h992" stroke="#C9CCC5" stroke-width="2"/>
+  <text x="104" y="1054" fill="#4E5750" font-family="Arial, sans-serif" font-size="28" letter-spacing="1.6">SHREYASH.SHUKLA.VERCEL.APP</text>
+  <circle cx="1087" cy="1045" r="9" fill="#207A4B"/>
+</svg>
