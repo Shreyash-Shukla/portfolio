@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://shreyash.shukla.vercel.app"),
+  metadataBase: new URL("https://shreyashshukla.vercel.app"),
   title: "Shreyash Shukla | Software Engineer & Computer Science Student in Gandhinagar",
   description:
     "Shreyash Shukla - Computer Science & Engineering student at PDEU, Gandhinagar, Gujarat. Software Engineering Intern at Quicko specializing in Angular, React, Next.js, Node.js, and AWS Serverless architecture.",
@@ -15,14 +15,14 @@ export const metadata = {
     "AWS Serverless Engineer",
     "Hackathon Winner Gujarat",
   ],
-  authors: [{ name: "Shreyash Shukla", url: "https://shreyash.shukla.vercel.app" }],
+  authors: [{ name: "Shreyash Shukla", url: "https://shreyashshukla.vercel.app" }],
   creator: "Shreyash Shukla",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Shreyash Shukla | Software Engineer & CSE Student",
     description:
       "Full Stack Web Developer & Software Intern at Quicko. View projects, hackathon achievements, and experience.",
-    url: "https://shreyash.shukla.vercel.app/",
+    url: "https://shreyashshukla.vercel.app/",
     siteName: "Shreyash Shukla Portfolio",
     locale: "en_IN",
     type: "website",
@@ -55,8 +55,8 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Shreyash Shukla",
-    url: "https://shreyash.shukla.vercel.app",
-    image: "https://shreyash.shukla.vercel.app/portfolio-preview-square.png",
+    url: "https://shreyashshukla.vercel.app",
+    image: "https://shreyashshukla.vercel.app/portfolio-preview-square.png",
     jobTitle: "Software Engineering Intern",
     worksFor: {
       "@type": "Organization",
