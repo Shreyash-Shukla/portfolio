@@ -8,6 +8,17 @@ This portfolio brings together my projects, hackathon wins, GitHub activity, and
 
 Add an object to the `blogs` array in `lib/blogs.js` with `title`, `excerpt`, `date` (YYYY-MM-DD), and `url`. Add optional `tags` as an array of strings. The Blogs section lists posts in the same order as the array, so put the newest first.
 
+## Contact form delivery
+
+The contact form sends messages through `app/api/contact/route.js` to a private Telegram chat. Create a bot with [@BotFather](https://t.me/BotFather), start a chat with it, and set these values in `.env.local` for local development:
+
+```dotenv
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+```
+
+Keep the token private. `.env.local` is ignored by Git. For the deployed site, add both variables to the hosting provider's environment settings and redeploy. A local `.env.local` file is not included in a Git deployment.
+
 ## Highlights
 
 - **FraudShield** — Grand prize winner at HackNUthon 6.0, Nirma University.
