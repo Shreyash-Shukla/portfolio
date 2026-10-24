@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { GitHubIcon } from "@/components/SocialIcons";
 
 const projects = [
@@ -40,6 +41,7 @@ const projects = [
     accent: "#39d353",
     tags: ["TypeScript", "AWS Lambda", "DynamoDB", "Terraform", "Middy"],
     description: "Four production financial tools shipped during my software engineering internship at Quicko, backed by schema-driven serverless APIs and infrastructure as code.",
+    certificate: "/quicko-internship-certificate.jpg",
     tools: [
       { label: "PAN-Aadhaar Link Status", url: "https://quicko.com/tools/check-pan-aadhaar-link-status" },
       { label: "Verify PAN Details", url: "https://quicko.com/tools/verify-pan-details" },
@@ -76,6 +78,19 @@ export default function Projects() {
                 <div className="mt-7 grid gap-2 sm:grid-cols-2">
                   {project.tools.map((tool) => <a key={tool.url} href={tool.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-between gap-2 rounded-md border border-white/20 bg-white/5 px-3 py-2 font-mono text-xs font-bold hover:border-[#39d353] hover:text-[#39d353]">{tool.label}<ArrowUpRight size={14} /></a>)}
                 </div>
+              )}
+              {project.certificate && (
+                <a href={project.certificate} target="_blank" rel="noopener noreferrer" className="group mt-7 flex items-center gap-4 rounded-xl border border-white/20 bg-white/5 p-3 transition-colors hover:border-[#39d353] hover:bg-white/10 sm:gap-5 sm:p-4" aria-label="View Quicko internship certificate full size in a new tab">
+                  <div className="relative h-28 w-20 shrink-0 overflow-hidden rounded-md border border-white/30 bg-white shadow-[3px_3px_0_0_#39d353] sm:h-32 sm:w-24">
+                    <Image src={project.certificate} alt="Quicko internship certificate issued to Shreyash Shukla" fill sizes="96px" className="object-contain" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#39d353]">Internship credential</span>
+                    <h4 className="mt-1 font-mont text-base font-black sm:text-lg">Quicko Internship Certificate</h4>
+                    <p className="mt-1 text-xs leading-relaxed text-gray-300 sm:text-sm">Full Stack Developer · May–June 2026</p>
+                    <span className="mt-3 inline-flex items-center gap-1 font-mono text-[10px] font-black uppercase text-[#39d353] group-hover:underline sm:text-xs">View full certificate <ArrowUpRight size={14} /></span>
+                  </div>
+                </a>
               )}
             </div>
             {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-[#39d353] px-4 py-2 font-mono text-xs font-black text-black hover:bg-[#67ee7d]"><GitHubIcon size={16} /> VIEW CODE <ArrowUpRight size={15} /></a>}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Award, Medal, Star, Trophy } from "lucide-react";
 
@@ -14,7 +14,7 @@ const wins = [
     team: "Team Software Sigmas",
     image: "/image_nirma.jpg",
     imageAlt: "FraudShield team receiving their HackNUthon 6.0 prizes at Nirma University",
-    imageFit: "object-cover",
+    imagePosition: "object-center",
     tone: "bg-[#c977ec]",
     post: "https://lnkd.in/p/dqGWEq8z",
     code: "https://github.com/Shreyash-Shukla/FraudShield",
@@ -36,7 +36,7 @@ const wins = [
     team: "Team ChatGPTters",
     image: "/image_pdeu.jpg",
     imageAlt: "TrustChain team with their certificates at the PDEU Economania hackathon",
-    imageFit: "object-contain",
+    imagePosition: "object-[center_43%]",
     tone: "bg-[#70d9e8]",
     post: "https://lnkd.in/p/dBa8_eWt",
     code: "https://github.com/Shreyash-Shukla/TrustChain",
@@ -60,10 +60,32 @@ const otherAchievements = [
 
 export default function Hackathons() {
   const [selected, setSelected] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const sectionRef = useRef(null);
   const win = wins[selected];
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView || hasInteracted || selected !== 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const timer = window.setTimeout(() => setSelected(1), 5000);
+    return () => window.clearTimeout(timer);
+  }, [isInView, hasInteracted, selected]);
+
   return (
-    <section id="hackathons" className="site-section">
+    <section ref={sectionRef} id="hackathons" className="site-section">
       <div className="section-heading">
         <span className="section-eyebrow">VICTORY ARCHIVES</span>
         <h2 className="section-title">Hackathon <span>Proof of Work</span></h2>
@@ -75,7 +97,7 @@ export default function Hackathons() {
           <button
             key={item.name}
             type="button"
-            onClick={() => setSelected(index)}
+            onClick={() => { setHasInteracted(true); setSelected(index); }}
             aria-pressed={selected === index}
             className="-mt-3 flex flex-col items-center gap-2 font-mono text-[10px] font-bold tracking-wider sm:text-xs"
           >
@@ -85,7 +107,7 @@ export default function Hackathons() {
         ))}
       </div>
 
-      <article key={win.name} className="dark-surface overflow-hidden rounded-2xl border-[3px] border-white bg-[#0e0e0e] text-white shadow-[8px_8px_0_0_#fff]">
+      <article key={win.name} className="dark-surface overflow-hidden rounded-2xl border-[3px] border-white bg-[#0e0e0e] text-white shadow-[8px_8px_0_0_#fff]" aria-live="polite">
         <div className={`flex flex-wrap items-end justify-between gap-3 px-5 py-5 text-black sm:px-7 ${win.tone}`}>
           <div>
             <span className="inline-block border-2 border-black bg-white px-2 py-1 font-mono text-[10px] font-black tracking-wider">{win.result}</span>
@@ -117,7 +139,7 @@ export default function Hackathons() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="relative min-h-[330px] overflow-hidden rounded-xl border-4 border-white bg-[#171717] sm:min-h-[420px]">
-              <Image src={win.image} alt={win.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className={win.imageFit} />
+              <Image src={win.image} alt={win.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className={`object-cover ${win.imagePosition}`} />
             </div>
             <p className="border-t border-dashed border-white/20 pt-3 font-mono text-xs font-bold text-[#9eb4ca]">{win.stat}</p>
           </div>
