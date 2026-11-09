@@ -56,6 +56,14 @@ export default function EasterEgg() {
   }, []);
 
   useEffect(() => {
+    console.log(
+      "%c🚀 Welcome curious developer! %c\nInspecting under the hood? Feel free to explore!\nHint: Try entering the Konami Code (↑ ↑ ↓ ↓ ← → ← → B A) or type `streak` in the terminal 😉",
+      "background: #39d353; color: #000; font-weight: bold; font-size: 13px; padding: 4px 8px; border-radius: 4px;",
+      "color: #8B9CFF; font-size: 12px; margin-top: 4px;"
+    );
+  }, []);
+
+  useEffect(() => {
     const onKeyDown = (e) => {
       konamiProgress.current.push(e.key);
       if (konamiProgress.current.length > KONAMI.length) {

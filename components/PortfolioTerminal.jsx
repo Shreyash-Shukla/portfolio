@@ -72,6 +72,9 @@ function TerminalOutput({ entry, runCommand }) {
     return <div className="space-y-2"><p className="font-bold text-[#39d353]">{title.toUpperCase()}</p><p className="rounded-md bg-red-400/10 px-3 py-2 text-[#ffd0d0]"><span className="mr-2 font-bold">−</span>{before}</p><p className="rounded-md bg-[#39d353]/10 px-3 py-2 text-[#c8f6d1]"><span className="mr-2 font-bold">+</span>{after}</p><p className="px-3 text-[#c7d5df]">Still true: {constant}</p></div>;
   }
   if (entry.kind === "history") return <div><p className="mb-2 font-bold text-[#39d353]">THIS SESSION</p>{entry.commands.map((command, index) => <p key={`${index}-${command}`} className="break-all text-[#c7d5df]"><span className="mr-2 text-[#8da0af]">{String(index + 1).padStart(2, "0")}</span>{command}</p>)}</div>;
+  if (entry.kind === "streak") return <p className="text-[#39d353]">🔥 Daily commit streak alive and thriving! Kept the chain unbroken in the nick of time.</p>;
+  if (entry.kind === "whoami") return <p className="text-[#c7d5df]">A curious engineer exploring Shreyash&apos;s digital workshop. Welcome! 👋</p>;
+  if (entry.kind === "sudo") return <p className="text-[#ffd0d0]">Permission denied: with great power comes great responsibility. 🧙‍♂️</p>;
   if (entry.kind === "arcade") return <p className="text-[#c7d5df]">Bug Blaster session ended · score <strong className="text-[#39d353]">{entry.score}</strong>. Your story is right where you left it.</p>;
   return <p className="text-[#f0c96d]">{entry.message}</p>;
 }
